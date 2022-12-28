@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+
+  <title>Home</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Sneaker Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Carrito</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contactanos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Login</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control" id="searchText" type="text" placeholder="Search">
+          <button id="btn_search_submit" class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <img src="../icon/carousel-1.jpg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="../icon/carousel-2.jpg" alt="">
+
+      </div>
+      <div class="swiper-slide">
+        <img src="../icon/carousel-3.jpg" alt="">
+
+      </div>
+      ...
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+  <section id="argentina">
+    <div class="container">
+        <div class="img-container"></div>
+        <img src="../icon/argentina.jpg" alt="argentinaSection" class="section-argentina" style="height: 20%; width:100%;">
+        <div class="texto">
+          <h2>Argentina <span class="color-acento">Campeón!</span></h2>
+          <p>Logra ganar la copa del mundo contra Francia <br>🐐 ⭐️⭐️⭐️ Leo Messi demuestra ser el mejor del mundo tras <br> liderar la conquista de la Copa Mundial de la <br> FIFA™ 2022 junto a <br> la Selección Argentina.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<footer class="hero">
+  <div class="container flex">
+      <div class="container__about">
+          <h2>About</h2>
+          <p>Tienda especializada en sneeakers.</p>
+      </div>
+      <div class="container-pages flex">
+
+          <div class="container__recentpages">
+              <h2>Paginas Recomendadas</h2>
+              <ul>
+                  <li><a href="#">Ciudades</a></li>
+                  <li><a href="#">Despachos</a></li>
+                  <li><a href="#">Directorio</a></li>
+                  <li><a href="#">Nuestra compañia</a></li>
+              </ul>
+          </div>
+          <div class="container__more">
+              <h2>Recient Pages</h2>
+              <ul>
+                <li><a href="#">Ciudades</a></li>
+                <li><a href="#">Despachos</a></li>
+                <li><a href="#">Directorio</a></li>
+                <li><a href="#">Nuestra compañia</a></li>
+              </ul>
+
+          </div>
+      </div>
+  </div>
+  <div class="line__separete"></div>
+  <div class="by flex">
+      <p>Copyright © 2022 All Rights Reserved by Cristian Barba.</p>
+  </div>
+
+</footer>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      autoplay: {
+        delay: 1000,
+        pauseOnMouseEnter: true,
+      },
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+
+    });
+  </script>
+
+
+</body>
+
+</html>

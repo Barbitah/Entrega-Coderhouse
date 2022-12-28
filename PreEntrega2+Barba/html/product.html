@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/product.css">
+  <title>Home</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Sneaker Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="product.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Carrito</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contactanos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Login</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control" id="searchText" type="text" placeholder="Buscar Productos">
+          <button id="btn_search_submit" class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="filter">
+    <div class="filtros">
+      <h5 class="filtros-h5">Filtros</h5>
+      <input type="submit" value="Ofertas" class="btn_ofertas">
+      <input type="submit" value="Todos" class="btn_todos">
+      <input type="submit" value="Limpiar" class="btn_limpiar">
+      <input type="button" class="btn_search" id="btn_search" value="Buscar por ID">
+      <input type="button" class="btn_searchProduct" id="btn_searchProduct" value="Buscar por Nombre">
+      <input type="button" class="btn_sandalias" id="btn_sandalias" value="Sandalias">
+      <input type="button" class="btn_sneakers" id="btn_sneakers" value="Zapatillas">
+
+    </div>
+
+    <div class="ordenar">
+      <h5 class="ordenar-h5">Ordenar</h5>
+      <input type="submit" value="Precio Mayor a menor" class="btn_ord_mayor">
+      <input type="submit" value="Precio menor a mayor" class="btn_ord_menor">
+
+    </div>
+  </div>
+
+  <div class="contenedor">
+
+  </div>
+  </div>
+
+  <script src="../js/sneakers.js"></script>
+  <script src="../js/products.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
+  </script>
+
+
+
+
+<footer class="hero">
+  <div class="container flex">
+      <div class="container__about">
+          <h2>About</h2>
+          <p>Tienda especializada en sneeakers.</p>
+      </div>
+      <div class="container-pages flex">
+
+          <div class="container__recentpages">
+              <h2>Paginas Recomendadas</h2>
+              <ul>
+                  <li><a href="#">Ciudades</a></li>
+                  <li><a href="#">Despachos</a></li>
+                  <li><a href="#">Directorio</a></li>
+                  <li><a href="#">Nuestra compañia</a></li>
+              </ul>
+          </div>
+          <div class="container__more">
+              <h2>Recient Pages</h2>
+              <ul>
+                <li><a href="#">Ciudades</a></li>
+                <li><a href="#">Despachos</a></li>
+                <li><a href="#">Directorio</a></li>
+                <li><a href="#">Nuestra compañia</a></li>
+              </ul>
+
+          </div>
+      </div>
+  </div>
+  <div class="line__separete"></div>
+  <div class="by flex">
+      <p>Copyright © 2022 All Rights Reserved by Cristian Barba.</p>
+  </div>
+
+</footer>
+
+
+
+</body>
+
+</html>

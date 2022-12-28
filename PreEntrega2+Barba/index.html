@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-left">
+            <div class="login-header">
+                <h1>Bienvenido a tu aplicación</h1>
+                <p>Por favor ingresa tus credenciales</p>
+            </div>
+            <form class="login-form" id="login-form">
+                <div class="login-form-content">
+                    <div class="form-item">
+                        <label for="email">Ingresa Correo</label>
+                        <input type="text" id="email">
+                    </div>
+                    <div class="form-item">
+                        <label for="password"> Ingresa tu contraseña</label>
+                        <input type="password"  id="password">
+                    </div>
+                    <div class="form-item">
+                        <div class="checkbox">
+                            <input type="checkbox" id="showPassword " onclick="showPass()">
+                            <label for="showPass" class="checkboxLabel">Mostrar contraseña</label>
+                        </div>
+                    </div>
+                    <input class="btn_submit" id="btn_submit" type="submit" value="Ingresar">
+                </div>
+                <div class="login-form-footer">
+                    <a href="#">
+                        <img width="30px" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/04/Facebook_f_logo_%282021%29.svg/2048px-Facebook_f_logo_%282021%29.svg.png" alt="">
+                    Facebook
+                    </a>
+                    <a href="#">
+                        <img width="30px" src="icon/1534129544.svg" alt="">Google
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="login-right">
+            <img width="700px" src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000" alt="">
+        </div>
+    </div>
+
+
+    <script src="js/login.js"></script>
+</body>
+</html>

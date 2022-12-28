@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@300&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.navbar {
+    background-color: black;
+}
+
+
+.navleft ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    gap: 50px;
+}
+
+.navleft li {
+    list-style: none;
+}
+
+.navleft li>a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 40px;
+}
+
+
+input {
+    display: flex;
+    padding: 3px;
+    margin-left: 30px;
+    font-size: 14px;
+    border-width: 0px;
+    border-color: #CCCCCC;
+    background-color: #FFFFFF;
+    color: #000000;
+    border-style: ridge;
+    border-radius: 0px;
+}
+
+
+
+input:focus {
+    text-decoration: underline;
+}
+
+
+input{
+    font-size: 17px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-left: 32px;
+    margin-top: 20px;
+    background: inherit;
+}
+
+
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-left: 5%;
+    z-index: 1;
+}
+
+.filter {
+    position: absolute;
+    width: 30vh;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.filter h5 {
+    font-size: 17px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-left: 32px;
+    margin-top: 20px;
+}
+
+
+.card {
+    display: flex;
+    margin: 40px;
+    text-align: center;
+    width: 240px;
+    height: 150x;
+    border-radius: 50px;
+    background: #e0e0e0;
+    align-content: flex-start;
+    align-items: center;
+    font-family: 'IM Fell Double Pica', serif;
+    cursor: pointer;
+}
+
+
+
+.card img {
+    width: 180px;
+    border-radius: 40px;
+}
+
+.card:hover {
+    scale: 1.2;
+    transition: .5s
+}
+
+.cardOfertas {
+    margin: 20px;
+    text-align: center;
+    width: 200px;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
+}
+
+.cardOfertas img {
+    width: 200px;
+}
+
+.cardOfertas:hover {
+    scale: 1.2;
+    transition: .5s
+}
+
+
+
+@media (width <=1200px) {
+    .filtros {
+        display: none;
+    }
+
+    .ordenar {
+        display: none;
+    }
+
+    .contenedor {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+
+.wrapper .sidebar{
+    position: fixed;
+    top: 70px;
+    left: 10px;
+    background: #2e4ead;
+    width: 200px;
+    height: calc(100% - 80px);
+    border-bottom-left-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .wrapper .sidebar ul li a{
+      display: block;
+      padding: 20px;
+      color: #fff;
+      position: relative;
+      margin-bottom: 1px;
+      color: #92a6e2;
+      white-space: nowrap;
+  }
+  
+  .wrapper .sidebar ul li a:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: #92a6e2;
+    display: none;
+  }
+  
+  .wrapper .sidebar ul li a span.icon{
+    margin-right: 10px;
+    display: inline-block;
+  }
+  
+  .wrapper .sidebar ul li a span.title{
+    display: inline-block;
+  }
+  
+  .wrapper .sidebar ul li a:hover,
+  .wrapper .sidebar ul li a.active{
+    background: #4360b5;
+    color: #fff;
+  }
+  
+  .wrapper .sidebar ul li a:hover:before,
+  .wrapper .sidebar ul li a.active:before{
+    display: block;
+  }
+
+
+
+
+  
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+.hero {
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.747);
+  background-size: cover;
+  background-blend-mode: multiply;
+  /* background-attachment:fixed ;
+    activate when you put in your website (optional)
+  */
+  color: rgb(255, 255, 255);
+  padding: 30px 80px 30px 30px;
+}
+
+.hero .container {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.flex {
+  display: flex;
+}
+
+.container__about {
+  margin-bottom: 30px;
+}
+
+.container__about p {
+  margin-top: 10px;
+  max-width: 300px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.container-pages {
+  column-gap: 30px;
+}
+
+.container-pages ul {
+  padding-top: 10px;
+  list-style: none;
+  line-height: 24px;
+}
+
+.container-pages ul a {
+  color: inherit;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+}
+
+.container-pages ul a:hover {
+  color: #017143;
+}
+
+footer .by {
+  margin-top: 30px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer .by p {
+  color: rgba(255, 255, 255, 0.605);
+  font-size: 14px;
+}
+
+.line__separete {
+  margin-top: 30px;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.icons {
+  margin-top: 20px;
+  display: flex;
+  column-gap: 25px;
+
+}
+
+.icon1 {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 50%;
+  outline: 2px solid #fff;
+  transition-property:
+    outline-offset, outline-color,
+    background-color;
+  transition-duration: .25s;
+}
+
+.icon1:hover {
+  outline-offset: 4px;
+}
+
+.icon1:hover i {
+  animation: shake .25s;
+}
+
+.icon--instagram:hover {
+  background-image: radial-gradient(circle at 30% 107%,
+      #fdf497 0%, #fdf497 5%,
+      #fd5949 45%, #d6249f 60%,
+      #285AEB 90%);
+  outline-color: #a02d76;
+}
+
+.icon--twitter:hover {
+  background-color: #1da1f2;
+  outline-color: #1da1f2;
+}
+
+.icon--linkedin:hover {
+  background-color: #0077b5;
+  outline-color: #0077b5;
+}
+
+.icon--github:hover {
+  background-color: #000000;
+  outline-color: #000000;
+}
+
+@keyframes shake {
+  10% {
+    transform: rotate(15deg);
+  }
+
+  20% {
+    transform: rotate(-15deg);
+  }
+
+  30% {
+    transform: rotate(15deg);
+  }
+
+  40% {
+    transform: rotate(-15deg);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .hero {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container__about h2 {
+    font-size: 20px;
+  }
+
+  .container__about p {
+    font-size: 12px;
+  }
+
+  .container__recentpages h2 {
+    font-size: 20px;
+  }
+
+  .container-pages ul a {
+    font-size: 12px;
+  }
+
+  footer .by p {
+    font-size: 12px;
+  }
+}
