@@ -25,7 +25,7 @@ formLogin.onsubmit = (e) => {
     array = [...usuarios]
 
     array.forEach(element => {
-        return inputUser.value == element.user && inputPass.value == element.pass ? window.location.assign("html/home.html") : false
+        return inputUser.value.toLowerCase() == element.user && inputPass.value.toLowerCase() == element.pass ? window.location.assign("html/home.html") : false
     });
 
 }
