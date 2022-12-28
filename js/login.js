@@ -32,12 +32,26 @@ formLogin.onsubmit = (e) => {
 
 
 
+
+
 function myFunction() {
     let x = document.getElementById("register");
-    if (x.style.display === "none") {
-        x.style.display = "block";
+    let y = document.getElementById("btn_registrar");
+    let z = document.getElementById("btn_submit");
+    let inp = document.getElementById("btn_register")
+
+
+    if (x.style.display === "none" && inp.value === "Registrarse") {
+        x.style.display = "block"; 
+        y.style.display = "block";
+        z.style.display = "none";
+        inp.value = "Volver"
     } else {
         x.style.display = "none";
+        y.style.display = "none";
+        z.style.display = "block";
+        inp.value = "Registrarse"
+
     }
 }
 
