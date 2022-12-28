@@ -1,10 +1,13 @@
 const usuarios = [{
+    name: "Cristian",
     user: "cristian@gmail.com",
     pass: "coder1"
 }, {
+    name: "Yohana",
     user: "yohafierro@gmail.com",
     pass: "yohanafierro1"
 }, {
+    name: "Andres",
     user: "barbamorales@gmail.com",
     pass: "coderhouse25"
 }]
@@ -13,11 +16,12 @@ const usuarios = [{
 
 
 const inputUser = document.querySelector("#email")
+const inputName = document.querySelector("#name")
 const inputPass = document.querySelector("#password")
 const formLogin = document.querySelector(".login-form")
 
-formLogin.onsubmit = ( e ) => {
-    e.preventDefault()  
+formLogin.onsubmit = (e) => {
+    e.preventDefault()
     array = [...usuarios]
 
     array.forEach(element => {
@@ -26,12 +30,21 @@ formLogin.onsubmit = ( e ) => {
 
 }
 
-const validarUsuario = (e) =>{
-    
+
+
+function myFunction() {
+    let x = document.getElementById("register");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 
+
+
 // function validarCredenciales(username,password){
-    
+
 //     const array = [...usuarios]
 
 
