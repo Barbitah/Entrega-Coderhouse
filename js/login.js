@@ -1,7 +1,7 @@
 const usuarios = [{
     name: "Cristian",
     user: "cristian@gmail.com",
-    pass: "coder1"
+    pass: "coder1",
 }, {
     name: "Yohana",
     user: "yohafierro@gmail.com",
@@ -34,6 +34,7 @@ formLogin.onsubmit = (e) => {
 
 
 
+
 function myFunction() {
     let x = document.getElementById("register");
     let y = document.getElementById("btn_registrar");
@@ -42,7 +43,7 @@ function myFunction() {
 
 
     if (x.style.display === "none" && inp.value === "Registrarse") {
-        x.style.display = "block"; 
+        x.style.display = "block";
         y.style.display = "block";
         z.style.display = "none";
         inp.value = "Volver"
@@ -57,22 +58,54 @@ function myFunction() {
 
 
 
-// function validarCredenciales(username,password){
+function registrarUser() {
 
-//     const array = [...usuarios]
+    let n = document.querySelector("#name").value
+    let e = document.querySelector("#email").value
+    let p = document.querySelector("#password").value
+    
+
+    arr = [...usuarios]
+
+    if (n != "" && e != "" && p != "") {
+        if (p.length >= 8) {
+            if (validarEmail(e) === true) {
+                usuarios.push({
+                    name: document.querySelector("#name").value,
+                    user: document.querySelector("#email").value,
+                    pass: document.querySelector("#password").value
+                })
+                console.log("usuario ingresado");
+                console.table(usuarios);
+                debugger
+            }
+        }else{
+            console.log(p);
+            alert("La contraseña debe ser mayor a 8 caracteres")
+        }
+    } else {
+        alert("Debe llenar todos los campos")
+    }
+
+    // usuarios.push({
+    //     name: document.querySelector("#name").value,
+    //     user: document.querySelector("#email").value,
+    //     pass: document.querySelector("#password").value
+    // })
+    // debugger
+    // console.log("usuario ingresado");
+    // console.table(usuarios);
+}
 
 
-//     array.forEach(element => {
-//         if (username != element.user && password != element.pass) {
-//             return false
-//         }else{
-//             return true
-//         }
+function validarEmail(email){
+    let expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
+    let esValido = expReg.test(email)
 
-//         // return element.user=== username && element.pass === password ?true : false
-//     });
-// }
+    return esValido === true ? true : alert("el correo debe contener @")
+
+}
 
 
 

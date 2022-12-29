@@ -14,18 +14,18 @@
                 <h1>Bienvenido a tu aplicación</h1>
                 <p>Por favor ingresa tus credenciales</p>
             </div>
-            <form class="login-form" id="login-form">
+            <form class="login-form" id="login-form"agreg>
                 <div class="login-form-content">
                     <div class="form-item" id="register">
-                        <label for="email">Ingresa tu nombre</label>
+                        <label id="nameLabel" for="name">Ingresa tu nombre</label>
                         <input type="text" id="name">
                     </div>
                     <div class="form-item">
-                        <label for="email">Ingresa Correo</label>
+                        <label id="emailLabel" for="email">Ingresa Correo</label>
                         <input type="text" id="email">
                     </div>
                     <div class="form-item">
-                        <label for="password"> Ingresa tu contraseña</label>
+                        <label id="passLabel" for="password"> Ingresa tu contraseña</label>
                         <input type="password"  id="password">
                     </div>
                     <div class="form-item">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <input class="btn_submit" id="btn_submit" type="submit" value="Ingresar">
-                    <input class="btn_registrar" id="btn_registrar" type="submit" value="Guardar">
+                    <input class="btn_registrar" id="btn_registrar" type="submit" onclick="registrarUser()" value="Guardar">
                     <input class="btn_register" id="btn_register" onclick="myFunction()" type="submit" value="Registrarse">
                 </div>
                 <div class="login-form-footer">
