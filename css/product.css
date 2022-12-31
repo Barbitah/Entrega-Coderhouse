@@ -97,21 +97,15 @@ input{
 }
 
 
+
+
 .card {
     display: flex;
-    margin: 40px;
-    text-align: center;
-    width: 240px;
-    height: 150x;
-    border-radius: 50px;
-    background: #e0e0e0;
-    align-content: flex-start;
-    align-items: center;
-    font-family: 'IM Fell Double Pica', serif;
-    cursor: pointer;
+    margin: 10px;
+    text-align: left;
+    border-style: none;
+    padding: 3%;
 }
-
-
 
 .card img {
     width: 180px;
@@ -119,28 +113,29 @@ input{
 }
 
 .card:hover {
-    scale: 1.2;
+    scale: 1.04;
     transition: .5s
 }
 
 .cardOfertas {
-    margin: 20px;
-    text-align: center;
-    width: 200px;
-    border-radius: 50px;
-    background: #e0e0e0;
-    box-shadow: 20px 20px 60px #bebebe,
-        -20px -20px 60px #ffffff;
+  display: flex;
+  margin: 10px;
+  text-align: left;
+  border-style: none;
+  padding: 3%;
 }
 
 .cardOfertas img {
-    width: 200px;
+  width: 180px;
+  border-radius: 40px;
 }
 
 .cardOfertas:hover {
-    scale: 1.2;
-    transition: .5s
+  scale: 1.04;
+  transition: .5s
 }
+
+
 
 
 

@@ -7,30 +7,39 @@ function cardsAHtml(array) {
         const card = document.createElement("div")
         card.className = "card"
         card.innerHTML = `
+
+
+
+    <div class="card" style="width: 18rem;">
     <div>
-        <img src=${array.img} alt="sneaker"></img>
+        <img src=${array.img} alt="sneaker" class="card-img-top"></img>
     </div>
-    <h6>
+    <div>
+        <h6>
         ID: ${array.id}
     </h6>
-    <h6>
+    <h6 class="card-title">
         ${array.producto}
     </h6>
     <h6 class="h4-precio">
         $${array.precio}
     </h6>
-    <h6>
+    <h6 class="card-title">
         ${array.fechaVencimiento}
     </h6>
-    <p>
+    <p class="card-text">
         Descripción: ${array.descripción}
     </p>
-    <h6>
+    <h6 class="card-title">
         Categoria: ${array.categoría}
     </h6>
     <h6>
         oferta: ${array.oferta}
     </h6>
+    <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+    </div>
+    
+    </div>
 
     `
         contenedor.appendChild(card)
@@ -38,36 +47,43 @@ function cardsAHtml(array) {
 }
 
 function imprimirHtml(array) {
+    arr = [sneakers]
 
     const contenedor = document.querySelector(".contenedor")
 
     const card = document.createElement("div")
     card.className = "card"
     card.innerHTML = `
+    <div class="card" style="width: 18rem;">
     <div>
-        <img src=${array.img} alt="sneaker"></img>
+        <img src=${array.img} alt="sneaker" class="card-img-top"></img>
     </div>
-    <h6>
+    <div>
+        <h6>
         ID: ${array.id}
     </h6>
-    <h6>
+    <h6 class="card-title">
         ${array.producto}
     </h6>
     <h6 class="h4-precio">
         $${array.precio}
     </h6>
-    <h6>
+    <h6 class="card-title">
         ${array.fechaVencimiento}
     </h6>
-    <p>
+    <p class="card-text">
         Descripción: ${array.descripción}
     </p>
-    <h6>
+    <h6 class="card-title">
         Categoria: ${array.categoría}
     </h6>
     <h6>
-    oferta: ${array.oferta}
+        oferta: ${array.oferta}
     </h6>
+    <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+    </div>
+    
+    </div>
 
     `
     contenedor.appendChild(card)
@@ -171,14 +187,14 @@ document.querySelector(".btn_search").addEventListener("click", () => {
 
 const searchForm = document.querySelector(".d-flex")
 
-searchForm.onsubmit = ( e ) => {
-    e.preventDefault()  
+searchForm.onsubmit = (e) => {
+    e.preventDefault()
     document.querySelector(".contenedor").innerHTML = "";
-    if (document.querySelector("#searchText").value  === "") {
+    if (document.querySelector("#searchText").value === "") {
         cardsAHtml(sneakers)
-    }else{
+    } else {
         searchProduct(sneakers)
-        
+
     }
 }
 
@@ -191,7 +207,7 @@ searchForm.onsubmit = ( e ) => {
 // BUSCAR POR PRODUCTO
 function searchProduct(array) {
     let arr = [...array]
-    const searchBar= document.querySelector("#searchText").value
+    const searchBar = document.querySelector("#searchText").value
 
     let busqueda = arr.find(elemento => elemento.producto == searchBar.toUpperCase());
 
@@ -272,7 +288,3 @@ document.querySelector(".form-control").addEventListener('keyup', (e) => {
     let texto = e.target.value
     console.log(texto);
 })
-
-
-
-
