@@ -69,7 +69,7 @@ function registrarUser() {
 
     if (n != "" && e != "" && p != "") {
         if (p.length >= 8) {
-            if (validarEmail(e) === true && validarUser(e) === true) {
+            if (validarEmail(e) === true) {
                 usuarios.push({
                     name: document.querySelector("#name").value,
                     user: document.querySelector("#email").value,
@@ -107,23 +107,24 @@ function validarEmail(email){
 
 }
 
+//PENDIENTE
 
-function validarUser(mail){
-    mail = document.querySelector("#email").value
-    array = [...usuarios]
+// function validarUser(mail){
+//     mail = document.querySelector("#email").value
+//     array = [...usuarios]
 
-    array.forEach(element => {
+//     array.forEach(element => {
 
-        if (element.user != mail) {
-            return true
-        }else{
-            alert("El correo ya se encuentra registrado")
-        }
+//         if (element.user != mail) {
+//             return true
+//         }else{
+//             alert("El correo ya se encuentra registrado")
+//         }
 
 
-    });
+//     });
 
-}
+// }
 
 
 
