@@ -75,9 +75,9 @@ function registrarUser() {
                     user: document.querySelector("#email").value,
                     pass: document.querySelector("#password").value
                 })
-                console.log("usuario ingresado");
+                alert("usuario Registrado");
+                infoAlLs("login", arr);
                 console.table(usuarios);
-                debugger
             }
         }else{
             console.log(p);
@@ -106,6 +106,8 @@ function validarEmail(email){
     return esValido === true ? true : alert("el correo debe contener @")
 
 }
+
+
 
 //PENDIENTE
 
@@ -138,4 +140,29 @@ function showPass() {
     } else {
         pass.type = "password"
     }
+}
+
+
+
+
+//FUNCIONES LS
+
+const infoAlLs = ( key, value ) => {
+    localStorage.setItem( key, JSON.stringify(value))
+}
+
+const infoLs = ( key, value ) => {
+    const transformarAJson = JSON.stringify(value)
+    localStorage.setItem(key, transformarAJson)
+}
+
+// 
+
+const obtenerLS = ( key ) => {
+    const bajarDelLs = localStorage.getItem(key)
+    return JSON.parse(bajarDelLs)
+}
+
+const obtenerDelLs = ( key ) => {
+    return JSON.parse(localStorage.getItem(key))
 }
