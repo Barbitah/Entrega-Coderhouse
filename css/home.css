@@ -27,6 +27,11 @@ body {
 }
 
 
+
+
+
+/* DARK MODE */
+
 @keyframes buttonPress {
   0% {
     box-shadow: inset 0px 0px 5px 2px var(--feedback__color);
@@ -71,10 +76,10 @@ body {
 }
 
 
+/* DARK MODE */
 
 
-
-
+/* SWIPER */
 .swiper {
   margin-top: 60px;
   width: 70%;
@@ -82,6 +87,10 @@ body {
   border-radius: 20px;
 }
 
+/* DARK MODE */
+
+
+/* SECTION ARGENTINA */
 img {
   height: 355px;
   width: 100%;
@@ -146,13 +155,13 @@ img {
 
 
 
+/* DARK MODE */
 
 
 
 
 
-
-
+/* FOOTER */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
@@ -338,6 +347,10 @@ footer .by p {
 }
 
 
+/* FOOTER */
+
+
+/* RESPONSIVE */
 
 @media (max-width: 1200px) {
   .texto{
@@ -378,3 +391,5 @@ footer .by p {
     display: none;
   }
 }
+
+/* RESPONSIVE*/

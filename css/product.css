@@ -72,19 +72,19 @@ input{
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 50px;
-    margin-left: 5%;
+    margin-left: 45px;
     z-index: 1;
 }
 
 .filter {
     position: absolute;
-    width: 30vh;
+    width: 22vh;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: space-around;
+    margin-right: 20%;
 }
 
 .filter h5 {

@@ -30,11 +30,6 @@ formLogin.onsubmit = (e) => {
 
 }
 
-
-
-
-
-
 function myFunction() {
     let x = document.getElementById("register");
     let y = document.getElementById("btn_registrar");
@@ -69,14 +64,15 @@ function registrarUser() {
 
     if (n != "" && e != "" && p != "") {
         if (p.length >= 8) {
-            if (validarEmail(e) === true) {
+            if (validarEmail(e.toLowerCase()) === true) {
                 usuarios.push({
                     name: document.querySelector("#name").value,
                     user: document.querySelector("#email").value,
                     pass: document.querySelector("#password").value
                 })
+                infoAlLs("user", e)
                 alert("usuario Registrado");
-                infoAlLs("login", arr);
+                window.location.assign("html/home.html")
                 console.table(usuarios);
             }
         }else{

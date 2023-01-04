@@ -4,7 +4,7 @@
 
     if (toggleState.classList.contains("toggle-dark")) {
       toggleState.classList.remove("toggle-dark");
-      toggleState.classList.add("toggle-light");
+      const dark = toggleState.classList.add("toggle-light");
 
       document.documentElement.style.setProperty("--background", "#F2F2F2");
       document.documentElement.style.setProperty("--color", "#000000");
@@ -14,9 +14,10 @@
         "--feedback__color",
         "rgba(0, 0, 0, 0.25)"
       );
+      localStorage.setItem("darkMode", "white")
     } else {
       toggleState.classList.remove("toggle-light");
-      toggleState.classList.add("toggle-dark");
+      const white = toggleState.classList.add("toggle-dark");
       document.documentElement.style.setProperty("--background", "#0F0F0F");
       document.documentElement.style.setProperty("--color", "#F1F1F1");
       document.documentElement.style.setProperty("--button", "#272727");
@@ -25,5 +26,8 @@
         "--feedback__color",
         "rgba(255, 255, 255, 0.7)"
       );
+      localStorage.setItem("darkMode", "dark")
     }
   }
+
+
