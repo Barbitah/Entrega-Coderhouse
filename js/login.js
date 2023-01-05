@@ -1,3 +1,4 @@
+
 const usuarios = [{
     name: "Cristian",
     user: "cristian@gmail.com",
@@ -71,16 +72,31 @@ function registrarUser() {
                     pass: document.querySelector("#password").value
                 })
                 infoAlLs("user", e)
-                alert("usuario Registrado");
+                swal({
+                    title: "Usuario Registrado",
+                    text: "El usuario fue ingresado correctamente",
+                    icon: "succes",
+                    button: "Aceptar"
+                })
                 window.location.assign("html/home.html")
                 console.table(usuarios);
             }
         }else{
             console.log(p);
-            alert("La contraseña debe ser mayor a 8 caracteres")
+            swal({
+                title: "Error de registro",
+                text: "La contraseña debe ser mayor a 8 caracteres",
+                icon: "warning",
+                button: "Aceptar"
+            })
         }
     } else {
-        alert("Debe llenar todos los campos")
+        swal({
+            title: "Error de registro",
+            text: "Debes llenar todos los campos",
+            icon: "warning",
+            button: "Aceptar"
+        })
     }
 
     // usuarios.push({
@@ -99,7 +115,7 @@ function validarEmail(email){
 
     let esValido = expReg.test(email)
 
-    return esValido === true ? true : alert("el correo debe contener @")
+    return esValido === true ? true : swal("Error de registro", "el correo debe contener @","warning")
 
 }
 
@@ -116,7 +132,7 @@ function validarEmail(email){
 //         if (element.user != mail) {
 //             return true
 //         }else{
-//             alert("El correo ya se encuentra registrado")
+//             swal("El correo ya se encuentra registrado")
 //         }
 
 

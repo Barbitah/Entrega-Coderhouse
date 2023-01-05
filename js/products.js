@@ -149,7 +149,7 @@ function categoriaZapatillas(array) {
     const contenedor = document.querySelector(".contenedor")
     const sandalias = [...sneakers]
     sandalias.filter(element => {
-        return element.categoría === "sandalias" ? imprimirHtml(element) : false
+        return element.categoría === "sneakers" ? imprimirHtml(element) : false
     })
 }
 
@@ -175,13 +175,6 @@ function ordenarMenor(array) {
     cardsAHtml(orden)
 }
 
-//---------------------DOM------------------------------
-document.querySelector(".btn_search").addEventListener("click", () => {
-    document.querySelector(".contenedor").innerHTML = "";
-    searchID(sneakers)
-})
-
-//------------------------------
 
 
 
@@ -216,10 +209,6 @@ function searchProduct(array) {
     console.log(busqueda);
 }
 
-document.querySelector(".btn_searchProduct").addEventListener("click", () => {
-    document.querySelector(".contenedor").innerHTML = "";
-    searchProduct(sneakers)
-})
 
 document.querySelector(".btn_sandalias").addEventListener("click", () => {
     document.querySelector(".contenedor").innerHTML = "";
@@ -235,11 +224,23 @@ document.querySelector(".btn_sneakers").addEventListener("click", () => {
 
 
 document.querySelector(".btn_ofertas").addEventListener('click', function (e) {
-    let confirmarOfertas = confirm("Deseas ver solo las ofertas?")
-    if (confirmarOfertas === true) {
-        document.querySelector(".contenedor").innerHTML = "";
-        validarOfertas(sneakers)
-    }
+    let confirmarOfertas = swal("Ofertas", "Deseas ver solo las ofertas?")
+
+    swal("Ofertas", "Deseas ver solo las ofertas?", {
+        buttons:{
+            cancel: "Cancelar",
+            catch: {
+                text: "Aceptar",
+                value: "catch"
+            }
+        }
+    })
+        .then((value) => {
+            if (value === "catch") {
+                document.querySelector(".contenedor").innerHTML = "";
+                validarOfertas(sneakers)
+            }
+        });
 })
 
 //MOSTRAR TODO
