@@ -130,27 +130,21 @@ input {
 
 .contenedor {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
   margin-top: 50px;
-  margin-left: 5%;
-  min-height: 1200px;
-  z-index: 1;
 }
 
 .filter {
   position: absolute;
   color: var(--background);
-  width: 22vh;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: space-around;
-  margin-right: 20%;
+  padding: 20px;
   color: var(--color);
 }
 
@@ -174,10 +168,9 @@ input {
   display: flex;
   background-color: transparent;
   color: var(--color);
-  margin: 10px;
   text-align: left;
   border-style: none;
-  padding: 3%;
+  padding: 2%;
 }
 
 .card img {
@@ -211,22 +204,6 @@ input {
 
 
 
-
-@media (width <=1200px) {
-  .filtros {
-    display: none;
-  }
-
-  .ordenar {
-    display: none;
-  }
-
-  .contenedor {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
 
 
 
@@ -487,8 +464,11 @@ footer .by p {
 
   .toggle-container{
     position: absolute;
-    top: 9%;
+    top: 15%;
     right: 3%;
+  }
+  .contenedor{
+    margin-left: 9%;
   }
 }
 
@@ -496,7 +476,7 @@ footer .by p {
 
   .toggle-container{
     position: absolute;
-    top: 7%;
+    top: 16%;
     right: 3%;
   }
 }
