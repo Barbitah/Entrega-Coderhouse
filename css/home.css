@@ -83,7 +83,7 @@ body {
 .swiper {
   margin-top: 60px;
   width: 70%;
-  height: 400px;
+  height: 500px;
   border-radius: 20px;
 }
 
@@ -92,7 +92,7 @@ body {
 
 /* SECTION ARGENTINA */
 img {
-  height: 355px;
+  height: 455px;
   width: 100%;
   object-fit: fill;
   border-radius: 20px;
@@ -352,19 +352,29 @@ footer .by p {
 
 /* RESPONSIVE */
 
-@media (max-width: 1200px) {
+@media (max-width: 3000px) {
   .texto{
     position: absolute;
-    top: 37vh;
-    font-size: 12px;
+    top: 17vh;
+    font-size: 15px;
+  }
+  .toggle-container{
+    position: absolute;
+    top: 15%;
+    right: 3%;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width:1000px) {
   .texto{
     position: absolute;
-    top: 65vh;
+    top: 15vh;
     font-size: 12px;
+  }
+  .toggle-container{
+    position: absolute;
+    top: 11.5%;
+    right: 3%;
   }
 }
 
@@ -374,7 +384,10 @@ footer .by p {
     top: 62vh;
     font-size: 12px;
   }
-  .texto p{
+  .texto p,h2{
+    display: none;
+  }
+  .toggle-container{
     display: none;
   }
 }
@@ -389,6 +402,18 @@ footer .by p {
   }
   .section-argentina{
     display: none;
+  }
+  .container p,h2{
+    color: white;
+  }
+  .navbar-brand{
+    margin-left: -30px;
+  }
+  .toggle-container{
+    display: none;
+  }
+  img{
+    height: 350px;
   }
 }
 

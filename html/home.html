@@ -15,8 +15,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex">
     <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../icon/logo.png" style="width: 100px; height: 100px;" alt="Bootstrap" width="30" height="24">
+      </a>
       <a class="navbar-brand" href="#">Sneaker Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
         aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,7 +143,6 @@
 
   <script>
     const swiper = new Swiper('.swiper', {
-      // Optional parameters
       direction: 'horizontal',
       loop: true,
       effect: 'fade',
@@ -151,12 +153,9 @@
         delay: 1000,
         pauseOnMouseEnter: true,
       },
-      // If we need pagination
       pagination: {
         el: '.swiper-pagination',
       },
-
-      // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
