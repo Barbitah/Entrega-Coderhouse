@@ -163,11 +163,24 @@ input {
 }
 
 
+.boton-carrito {
+  border: 0;
+  padding: 4px 8px;
+  background-color: rgba(54, 19, 248, 0.827);
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.boton-carrito:hover {
+  background-color: rgb(47, 12, 245);
+}
 
 .card {
   display: flex;
   background-color: transparent;
   color: var(--color);
+  width: rem;
   text-align: left;
   border-style: none;
   padding: 2%;
@@ -464,7 +477,7 @@ footer .by p {
 
   .toggle-container{
     position: absolute;
-    top: 15%;
+    top: 20%;
     right: 3%;
   }
   .contenedor{
@@ -476,8 +489,11 @@ footer .by p {
 
   .toggle-container{
     position: absolute;
-    top: 16%;
+    top: 22%;
     right: 3%;
+  }
+  .filter{
+    display: none;
   }
 }
 
@@ -486,10 +502,16 @@ footer .by p {
   .toggle-container{
     display: none;
   }
+  .filter{
+    display: none;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width:480px) {
   .toggle-container{
+    display: none;
+  }
+  .filter{
     display: none;
   }
 

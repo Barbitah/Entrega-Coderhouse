@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home.html"> <svg width="19" height="19" fill="none" stroke="#d4d4d4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <a class="nav-link" aria-current="page" href="home.html"> <svg width="19" height="19" fill="none" stroke="#d4d4d4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M3.75 9.938V21a.75.75 0 0 0 .75.75H9v-6.375a1.125 1.125 0 0 1 1.125-1.125h3.75A1.125 1.125 0 0 1 15 15.375v6.375h4.5a.75.75 0 0 0 .75-.75V9.937"></path>
               <path d="m22.5 12-9.99-9.563c-.234-.248-.782-.25-1.02 0L1.5 11.999"></path>
               <path d="M18.75 8.39V3H16.5v3.234"></path>
@@ -42,7 +42,7 @@
 
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../html/contact.html"><svg width="19" height="19" fill="none" stroke="#d4d4d4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <a class="nav-link active" href="../html/contact.html"><svg width="19" height="19" fill="none" stroke="#d4d4d4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M18.844 7.875c-.138 1.906-1.552 3.375-3.094 3.375-1.542 0-2.959-1.468-3.094-3.375-.14-1.983 1.236-3.375 3.094-3.375 1.858 0 3.235 1.428 3.094 3.375Z"></path>
               <path d="M15.75 14.25c-3.055 0-5.993 1.517-6.729 4.472-.097.391.148.778.55.778h12.358c.402 0 .646-.387.55-.778-.736-3.002-3.674-4.472-6.73-4.472Z"></path>
               <path d="M9.375 8.716c-.11 1.522-1.253 2.722-2.484 2.722-1.232 0-2.377-1.2-2.485-2.722C4.294 7.132 5.406 6 6.891 6c1.484 0 2.596 1.161 2.484 2.716Z"></path>
@@ -72,44 +72,52 @@
       </div>
     </div>
   </nav>
-
   <div class="toggle-container" id="toggle-container" onclick="toggleMode()">
     <div class="toggle toggle-dark" id="toggle"></div>
   </div>
 
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="../icon/carousel-1.jpg" alt="">
-      </div>
-      <div class="swiper-slide">
-        <img src="../icon/carousel-2.jpg" alt="">
 
-      </div>
-      <div class="swiper-slide">
-        <img src="../icon/carousel-3.jpg" alt="">
+  <div class="container p-5">
 
+    <h3 class="text-center">Contactanos</h3><br />
+    
+    <div class="row">
+      <div class="col-md-8">
+          <form>
+            <input class="form-control" name="name" placeholder="Nombre..." /><br />
+            <input class="form-control" name="phone" placeholder="Teléfono..." /><br />
+            <input class="form-control" name="email" placeholder="E-mail..." /><br />
+            <textarea class="form-control" name="text" placeholder="Como podemos ayudarte?" style="height:150px;"></textarea><br />
+            <input class="btn btn-primary" type="submit" value="Enviar" /><br /><br />
+          </form>
       </div>
-      ...
+      <div class="col-md-4">
+        <b>Servicio al cliente:</b> <br />
+        Teléfono: +56 9 3452 2984<br />
+        E-mail: <a href="mailto:support@sneakershop.com">support@sneakershop.com</a><br />
+        <br /><br />
+        <b>Central:</b><br />
+        Sneaker's Inc, <br />
+        Av. Apoquindo #1298<br />
+        Las Condes, Chile<br />
+        Teléfono: +1 145 000 101<br />
+        <a href="mailto:support@sneakershop.com">support@sneakershop.com</a><br />
+    
+    
+        <br /><br />
+        <b>Argentina:</b><br />
+        Sneaker's ARG, <br />
+        Dr. Juan Felipe Aranguren 2972 <br> Buenos Aires, Argentina<br />
+        Teléfono: +541173669843<br />
+        <a href="mailto:support@sneakershop.ar">support@sneakershop.ar</a><br />
+    
+    
+      </div>
     </div>
-    <div class="swiper-pagination"></div>
-
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <div class="swiper-scrollbar"></div>
-  </div>
-
-  <section id="argentina">
-    <div class="container">
-        <div class="img-container"></div>
-        <img src="../icon/argentina.jpg" alt="argentinaSection" class="section-argentina" style="height: 20%; width:100%;">
-        <div class="texto">
-          <h2>Argentina <span class="color-acento">Campeón!</span></h2>
-          <p>Logra ganar la copa del mundo contra Francia <br>🐐 ⭐️⭐️⭐️ Leo Messi demuestra ser el mejor del mundo tras <br> liderar la conquista de la Copa Mundial de la <br> FIFA™ 2022 junto a <br> la Selección Argentina.</p>
-        </div>
+    
     </div>
-</section>
+
+
 
 <footer class="hero">
   <div class="container flex">

@@ -1,128 +1,49 @@
-//IMPRIMIR EN HTML
-function cardsAHtml(array) {
-    const contenedor = document.querySelector(".contenedor")
-    const mostrarTodo = [...array]
+// Se crea un nuevo array para el carrito
 
-    mostrarTodo.forEach(array => {
-        const card = document.createElement("div")
-        card.className = "card"
-        card.innerHTML = `
+let carro = []
 
+const contenedor = document.querySelector(".contenedor")
 
-
-    <div class="card" style="width: 18rem;">
-    <div>
-        <img src=${array.img} alt="sneaker" class="card-img-top"></img>
-    </div>
-    <div>
-        <h6>
-        ID: ${array.id}
-    </h6>
-    <h6 class="card-title">
-        ${array.producto}
-    </h6>
-    <h6 class="h4-precio">
-        $${array.precio}
-    </h6>
-    <h6 class="card-title">
-        ${array.fechaVencimiento}
-    </h6>
-    <p class="card-text">
-        Descripción: ${array.descripción}
-    </p>
-    <h6 class="card-title">
-        Categoria: ${array.categoría}
-    </h6>
-    <h6>
-        oferta: ${array.oferta}
-    </h6>
-    <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-    </div>
-    
-    </div>
-
-    `
-        contenedor.appendChild(card)
-    });
+// funciones para LS
+const alLs = ( clave, valor ) => {
+    return localStorage.setItem(clave, JSON.stringify(valor))
 }
 
-function imprimirHtml(array) {
-    arr = [sneakers]
-
-    const contenedor = document.querySelector(".contenedor")
-
-    const card = document.createElement("div")
-    card.className = "card"
-    card.innerHTML = `
-    <div class="card" style="width: 18rem;">
-    <div>
-        <img src=${array.img} alt="sneaker" class="card-img-top"></img>
-    </div>
-    <div>
-        <h6>
-        ID: ${array.id}
-    </h6>
-    <h6 class="card-title">
-        ${array.producto}
-    </h6>
-    <h6 class="h4-precio">
-        $${array.precio}
-    </h6>
-    <h6 class="card-title">
-        ${array.fechaVencimiento}
-    </h6>
-    <p class="card-text">
-        Descripción: ${array.descripción}
-    </p>
-    <h6 class="card-title">
-        Categoria: ${array.categoría}
-    </h6>
-    <h6>
-        oferta: ${array.oferta}
-    </h6>
-    <a href="#" class="btn btn-primary">Agregar al Carrito</a>
-    </div>
-    
-    </div>
-
-    `
-    contenedor.appendChild(card)
-
-
-
+const pushAArray = ( array, value ) => {
+    array.push(value)
 }
 
-//------------------------------
-// METODO 1 SIN FILTER
-// function validarOfertas(array) {
-//     const contenedor = document.querySelector(".contenedor")
-//     const ofertasSneakers = [...sneakers]
-//     array.forEach(ofertasSneakers => {
-
-//         if (ofertasSneakers.oferta === true) {
-//             ofert = Math.floor(ofertasSneakers.precio - (ofertasSneakers.precio * 0.20))
-//             ofertasSneakers.precio = ofert
-//             console.log("Oferta de 20% " + ofertasSneakers.precio);
-//             imprimirHtml(ofertasSneakers)
-//         }
-
-//     });
-// }
+const obtenerDelLs = ( clave ) => {
+    return JSON.parse(localStorage.getItem(clave))
+}
 
 
-//METODO 2 CON FILTER
-//METODO 2 CON FILTER
-function validarOfertas(array) {
-    const contenedor = document.querySelector(".contenedor")
-    const ofertasSneakers = [...sneakers]
-    ofertasSneakers.filter(element => {
-        return element.oferta === true ? imprimirHtml(element) : false
-    })
+
+const cardsAHtml = ( array ) => {
+    const arrayReducido = array.reduce( (acc, element ) => {
+        return acc + `
+            <div class="card" id="card-${element.id}">
+                <div class="card-img">
+                    <img src=${element.img} alt=${element.producto}>
+                </div>   
+                <h5>
+                    ${element.producto}
+                </h5>    
+                <h5>
+                    $${element.precio}
+                </h5>
+                <h5>
+                ${element.oferta}
+                </h5>
+                <button class="boton-carrito" id="button-${element.id}">Añadir al carrito</button>     
+            </div>
+        `
+    }, "")
+    return arrayReducido
 }
 
 
 function cargarOfertas() {
-    const contenedor = document.querySelector(".contenedor")
     const ofertasSneakers = [...sneakers]
     ofertasSneakers.filter(element => {
         if (element.oferta === true) {
@@ -133,159 +54,47 @@ function cargarOfertas() {
     })
 }
 
-window.onload = cargarOfertas()
+cargarOfertas()
+
+// se llama al contenedor para imprimir al card
+contenedor.innerHTML = cardsAHtml(sneakers)
 
 
-function categoriaSandalia(array) {
-    const contenedor = document.querySelector(".contenedor")
-    const sandalias = [...sneakers]
-    sandalias.filter(element => {
-        return element.categoría === "sandalias" ? imprimirHtml(element) : false
+// se crea funcion para comparar el ID con el array
+const buscarProducto = ( producto, array) => {
+    return array.find( product => {
+        return product.id === Number(producto)
     })
 }
 
 
-function categoriaZapatillas(array) {
-    const contenedor = document.querySelector(".contenedor")
-    const sandalias = [...sneakers]
-    sandalias.filter(element => {
-        return element.categoría === "sneakers" ? imprimirHtml(element) : false
-    })
-}
+//funcion para agregar al carro de compra por LS
 
-
-
-
-
-
-
-//funciones para ordenar arrays
-function ordenarMayor(array) {
-    arr = [...array]
-    orden = arr.sort(((a, b) => b.precio - a.precio))
-    console.table(orden);
-    cardsAHtml(orden)
-}
-
-function ordenarMenor(array) {
-
-    arr = [...array]
-    orden = arr.sort(((a, b) => a.precio - b.precio))
-    console.table(orden);
-    cardsAHtml(orden)
-}
-
-
-
-
-const searchForm = document.querySelector(".d-flex")
-
-searchForm.onsubmit = (e) => {
-    e.preventDefault()
-    document.querySelector(".contenedor").innerHTML = "";
-    if (document.querySelector("#searchText").value === "") {
-        cardsAHtml(sneakers)
-    } else {
-        searchProduct(sneakers)
-
-    }
-}
-
-
-
-
-
-
-
-// BUSCAR POR PRODUCTO
-function searchProduct(array) {
-    let arr = [...array]
-    const searchBar = document.querySelector("#searchText").value
-
-    let busqueda = arr.find(elemento => elemento.producto == searchBar.toUpperCase());
-
-
-    imprimirHtml(busqueda)
-    console.log(busqueda);
-}
-
-
-document.querySelector(".btn_sandalias").addEventListener("click", () => {
-    document.querySelector(".contenedor").innerHTML = "";
-    categoriaSandalia(sneakers)
-})
-document.querySelector(".btn_sneakers").addEventListener("click", () => {
-    document.querySelector(".contenedor").innerHTML = "";
-    categoriaZapatillas(sneakers)
-})
-//------------------------------
-
-// funciones para mostrar y buscar
-
-
-document.querySelector(".btn_ofertas").addEventListener('click', function (e) {
-    let confirmarOfertas = swal("Ofertas", "Deseas ver solo las ofertas?")
-
-    swal("Ofertas", "Deseas ver solo las ofertas?", {
-        buttons:{
-            cancel: "Cancelar",
-            catch: {
-                text: "Aceptar",
-                value: "catch"
-            }
+const subirAlCarrito = () => {
+    const botonesCards = document.querySelectorAll(".boton-carrito")
+    botonesCards.forEach( boton => {
+        boton.onclick = () => {     
+            const recortarId = boton.id.slice(7) 
+            console.log(recortarId) 
+            const producto = buscarProducto(recortarId, sneakers)
+            pushAArray(carro, producto)
+            alLs("carrito", carro)
+            actualizarNro()
         }
     })
-        .then((value) => {
-            if (value === "catch") {
-                document.querySelector(".contenedor").innerHTML = "";
-                validarOfertas(sneakers)
-            }
-        });
-})
+}
 
-//MOSTRAR TODO
+subirAlCarrito()
 
-document.querySelector(".btn_todos").addEventListener("click", () => {
-    document.querySelector(".contenedor").innerHTML = "";
-    cardsAHtml(sneakers)
-})
+const carritoActualizado = obtenerDelLs("carrito") || []
+carro = carritoActualizado
 
 
-
-
-
-
-
-
-
-
-//DOM para ordenar
-document.querySelector(".btn_ord_mayor").addEventListener("click", () => {
-    document.querySelector(".contenedor").innerHTML = "";
-    ordenarMayor(sneakers)
-})
-
-
-document.querySelector(".btn_ord_menor").addEventListener("click", () => {
-    document.querySelector(".contenedor").innerHTML = "";
-    ordenarMenor(sneakers)
-})
-
-
-//BTN para limpiar
-document.querySelector(".btn_limpiar").addEventListener("click", () => {
-    document.querySelector(".contenedor").innerHTML = "";
-})
-
-
-window.addEventListener("load", function () {
-    cardsAHtml(sneakers)
-})
-
-
-
-
-document.querySelector(".form-control").addEventListener('keyup', (e) => {
-    let texto = e.target.value
-    console.log(texto);
-})
+function actualizarNro(){
+    nro = JSON.parse(localStorage.getItem("carrito"))
+    let carroNro = document.querySelector(".numerito")
+    
+    console.log(carroNro);
+    carroNro.innerHTML = nro.length
+}
+actualizarNro()
