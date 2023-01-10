@@ -367,7 +367,8 @@ b{
 @media (min-width: 1000px) and (max-width: 3000px) {
   .texto{
     position: absolute;
-    top: 17vh;
+    top: 22vh;
+
     font-size: 15px;
   }
   .toggle-container{
@@ -380,7 +381,7 @@ b{
 @media screen and (min-width: 768px) and (max-width:1000px) {
   .texto{
     position: absolute;
-    top: 15vh;
+    top: 23vh;
     font-size: 12px;
   }
   .toggle-container{
