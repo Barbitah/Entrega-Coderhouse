@@ -32,9 +32,6 @@ const cardsAHtml = ( array ) => {
                 <h5>
                     $${element.precio}
                 </h5>
-                <h5>
-                ${element.oferta}
-                </h5>
                 <button class="boton-carrito" id="button-${element.id}">Añadir al carrito</button>     
             </div>
         `
@@ -93,8 +90,6 @@ carro = carritoActualizado
 function actualizarNro(){
     nro = JSON.parse(localStorage.getItem("carrito"))
     let carroNro = document.querySelector(".numerito")
-    
-    console.log(carroNro);
     carroNro.innerHTML = nro.length
 }
 actualizarNro()

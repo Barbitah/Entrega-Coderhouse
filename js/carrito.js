@@ -1,8 +1,6 @@
 function actualizarNro() {
     nro = JSON.parse(localStorage.getItem("carrito"))
     let carroNro = document.querySelector(".numerito")
-
-    console.log(carroNro);
     carroNro.innerHTML = nro.length
 }
 actualizarNro()
@@ -21,60 +19,44 @@ let carrito = obtenerDelLs("carrito")
 
 const cardsAHtml = (array) => {
     const arrR = array.reduce((acc, element) => {
-        return acc + `
-            <div class="card" id="card-${element.id}">
-            <div class="shopping-cart">
+        let taxValor = (element.precio * 0.19)
+        let valorConTax = element.precio - (element.precio * 0.19)
 
-            <div class="column-labels">
-              <label class="product-image">Imagen</label>
-              <label class="product-details">Nombre</label>
-              <label class="product-price">Precio</label>
-              <label class="product-quantity">ID</label>
-              <label class="product-removal">Quitar</label>
-              <label class="product-line-price">Total</label>
-            </div>
-            <div class="product">
+        return acc + `
+        <div class="card" id="card-${element.id}">
+
+        <div class="column-labels">
+            <label class="product-image">Imagen</label>
+            <label class="product-details">Nombre</label>
+            <label class="product-price">Precio</label>
+            <label class="product-quantity">ID</label>
+            <label class="product-removal">Quitar</label>
+            <label class="product-line-price">Total</label>
+        </div>
+        <div class="product">
             <div class="product-image">
-              <img src="${element.img}">
+                <img src="${element.img}">
             </div>
             <div class="product-details">
-              <div class="product-title">${element.producto}</div>
-              <p class="product-description">${element.descripción}</p>
+                <p class="product-title">${element.producto}</p>
+                <p class="product-description">${element.descripción}</p>
             </div>
-            <div class="product-price">${element.precio}</div>
-            <div class="product-quantity">
-                <p class="product-description">${element.id}</p>
-            </div>
+            <p class="product-price">$${element.precio}</p>
+            <p class="product-description">${element.id}</p>
             <div class="product-removal">
-              <button class="boton-carrito" id="borrar-${element.id}">Quitar</button>
+                <button class="boton-carrito" id="borrar-${element.id}">Quitar</button>
             </div>
-            <div class="product-line-price">${element.precio}</div>
-          </div>
+            <div class="totals">
+                <div class="totals-item">
+                    <label>Subtotal</label>
+                    <p class="totals-value" id="cart-subtotal">$${element.precio}</p>
+                </div>
+            </div>
+        </div>
           
         `
     }, "")
     return arrR
-}
-
-
-{
-    /* <div class="totals">
-                <div class="totals-item">
-                    <label>Subtotal</label>
-                    <div class="totals-value" id="cart-subtotal">71.97</div>
-                </div>
-                <div class="totals-item">
-                    <label>Tax (5%)</label>
-                    <div class="totals-value" id="cart-tax">3.60</div>
-                </div>
-                <div class="totals-item">
-                    <label>Shipping</label>
-                    <div class="totals-value" id="cart-shipping">15.00</div>
-                </div>
-                <div class="totals-item totals-item-total">
-                    <label>Grand Total</label>
-                <div class="totals-value" id="cart-total">90.57</div>
-              </div> */
 }
 
 
@@ -99,8 +81,41 @@ const actualizarCarrito = () => {
             console.log(carroNro);
             carroNro.innerHTML = nro.length
             actualizarCarrito()
+            total()
         }
     }
 }
 
 actualizarCarrito()
+
+
+
+function total(){
+    let ls = JSON.parse(localStorage.getItem("carrito"))
+    arr = Object.values(ls)
+    let acc = 0
+
+    for (let index = 0; index < ls.length; index++) {
+        let element = ls[index].precio;
+
+        let total = element + (element * 0.19) + 2500 
+        acc = acc + Math.trunc(total)
+        console.log(Math.trunc(total));
+    }
+    console.log("hola "+ acc);
+
+    const resumen = document.querySelector(".total-pedido")
+    resumen.innerHTML= "$" + acc
+
+    let taxes = acc * 0.19
+    document.querySelector(".total-tax").innerHTML = "$"+Math.trunc(taxes)
+
+    let totalFinal = acc + taxes + 2500
+    document.querySelector(".total-final").innerHTML = "$" + Math.trunc(totalFinal)
+}
+
+
+total()
+
+
+

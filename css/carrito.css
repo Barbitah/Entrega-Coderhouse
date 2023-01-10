@@ -148,6 +148,41 @@ footer .by {
   flex-wrap: wrap;
 }
 
+.label-carro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedor-Carro{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+aside{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  margin-left: 33px;
+  padding: 20px;
+  gap: 20px;
+  width: 30%;
+  border: 1px solid rgb(212, 212, 212);
+}
+
+aside label{
+ color: rgb(74, 74, 74);
+ font-size: 18px;
+ font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+ 
+}
+
+.resumen{
+  color: rgb(179, 180, 179);
+}
+
 footer .by p {
   color: rgba(255, 255, 255, 0.605);
   font-size: 14px;
@@ -266,17 +301,13 @@ footer .by p {
 .container {
   width: 100%;
   margin: 20px;
+  margin-bottom: 300px;
 }
 
 .label-carro {
   color: var(--color);
 }
 
-/*
-SHOP CART
-*/
-/*VARIABLES*/
-/* Global "table" column settings */
 .product-image {
   float: left;
   width: 20%;
@@ -284,7 +315,7 @@ SHOP CART
 
 .product-details {
   float: left;
-  width: 37%;
+  width: 44%;
 }
 
 .product-price {
@@ -307,7 +338,6 @@ SHOP CART
   text-align: right;
 }
 
-/* This is used as the traditional .clearfix class */
 .group:before, .shopping-cart:before, .column-labels:before, .product:before, .totals-item:before,
 .group:after,
 .shopping-cart:after,
@@ -326,13 +356,6 @@ SHOP CART
   zoom: 1;
 }
 
-/* Apply clearfix in a few places */
-/* Apply dollar signs */
-.product .product-price:before, .product .product-line-price:before, .totals-value:before {
-  content: "$";
-}
-
-/* Body/Header stuff */
 h1 {
   font-weight: 100;
 }
@@ -344,13 +367,10 @@ label {
 .shopping-cart {
   margin-top: -45px;
 }
-
-/* Column headers */
 .column-labels label {
   margin-top: 50px;
   padding-bottom: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #eee;
 }
 .column-labels .product-image, .column-labels .product-details, .column-labels .product-removal {
   text-indent: -9999px;
@@ -358,9 +378,8 @@ label {
 
 /* Product entries */
 .product {
-  margin-bottom: 20px;
+  margin-bottom: 4px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
 }
 .product .product-image {
   text-align: center;
@@ -436,7 +455,6 @@ label {
   .shopping-cart {
     margin: 0;
     padding-top: 20px;
-    border-top: 1px solid #eee;
   }
   .column-labels {
     display: none;

@@ -28,14 +28,7 @@ body {
 
 }
 
-@keyframes buttonPress {
-  0% {
-    box-shadow: inset 0px 0px 5px 2px var(--feedback__color);
-  }
-  100% {
-    box-shadow: none;
-  }
-}
+
 
 .toggle-container {
   width: 70px;
@@ -82,6 +75,10 @@ body {
 
 
 
+
+
+
+
 /* CARRITO */
 
 
@@ -91,7 +88,6 @@ body {
 * {
   padding: 0%;
   margin: 0%;
-  box-sizing: border-box;
 }
 
 .hero {
@@ -271,23 +267,17 @@ footer .by p {
 
 
 
-
-
-
-
-
-
-
-
 .container{
     width: 100%;
     margin: 20px;
+    margin-bottom: 300px;
 }
 
 .label-carro{
   color: var(--color);
 }
 
+.
 
 /*
 SHOP CART
@@ -323,16 +313,7 @@ $font-bold: 'HelveticaNeue-Medium', 'Helvetica Neue Medium';
 }
 
 
-/* Apply clearfix in a few places */
-.shopping-cart, .column-labels, .product, .totals-item {
-  @extend .group;
-}
 
-
-/* Apply dollar signs */
-.product .product-price:before, .product .product-line-price:before, .totals-value:before {
-  content: '$';
-}
 
 
 /* Body/Header stuff */
@@ -357,7 +338,6 @@ label {
     margin-top: 50px;
     padding-bottom: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid $color-border;
   }
   
   .product-image, .product-details, .product-removal {
@@ -370,7 +350,6 @@ label {
 .product {
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $color-border;
   
   .product-image {
     text-align: center;

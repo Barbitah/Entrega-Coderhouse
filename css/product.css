@@ -180,7 +180,8 @@ input {
   display: flex;
   background-color: transparent;
   color: var(--color);
-  width: rem;
+  width: 15em;
+  margin-top: 40px;
   text-align: left;
   border-style: none;
   padding: 2%;
