@@ -5,22 +5,22 @@ let carro = []
 const contenedor = document.querySelector(".contenedor")
 
 // funciones para LS
-const alLs = ( clave, valor ) => {
+const enviarLs = (clave, valor) => {
     return localStorage.setItem(clave, JSON.stringify(valor))
 }
 
-const pushAArray = ( array, value ) => {
+const pushearArray = (array, value) => {
     array.push(value)
 }
 
-const obtenerDelLs = ( clave ) => {
+const obtenerDelLs = (clave) => {
     return JSON.parse(localStorage.getItem(clave))
 }
 
 
 
-const cardsAHtml = ( array ) => {
-    const arrayReducido = array.reduce( (acc, element ) => {
+const cardsAHtml = (array) => {
+    const arrayReducido = array.reduce((acc, element) => {
         return acc + `
             <div class="card" id="card-${element.id}">
                 <div class="card-img">
@@ -54,12 +54,11 @@ function cargarOfertas() {
 cargarOfertas()
 
 // se llama al contenedor para imprimir al card
-contenedor.innerHTML = cardsAHtml(sneakers)
 
 
 // se crea funcion para comparar el ID con el array
-const buscarProducto = ( producto, array) => {
-    return array.find( product => {
+const buscarProducto = (producto, array) => {
+    return array.find(product => {
         return product.id === Number(producto)
     })
 }
@@ -69,13 +68,13 @@ const buscarProducto = ( producto, array) => {
 
 const subirAlCarrito = () => {
     const botonesCards = document.querySelectorAll(".boton-carrito")
-    botonesCards.forEach( boton => {
-        boton.onclick = () => {     
-            const recortarId = boton.id.slice(7) 
-            console.log(recortarId) 
+    botonesCards.forEach(boton => {
+        boton.onclick = () => {
+            const recortarId = boton.id.slice(7)
+            console.log(recortarId)
             const producto = buscarProducto(recortarId, sneakers)
-            pushAArray(carro, producto)
-            alLs("carrito", carro)
+            pushearArray(carro, producto)
+            enviarLs("carrito", carro)
             actualizarNro()
         }
     })
@@ -87,9 +86,149 @@ const carritoActualizado = obtenerDelLs("carrito") || []
 carro = carritoActualizado
 
 
-function actualizarNro(){
+function actualizarNro() {
     nro = JSON.parse(localStorage.getItem("carrito"))
     let carroNro = document.querySelector(".numerito")
     carroNro.innerHTML = nro.length
 }
 actualizarNro()
+
+
+
+
+
+
+// funciones validarOfertas
+function validarOfertas(array) {
+    const ofertasSneakers = [...array]
+    let newArray = []
+    ofertasSneakers.forEach(element => {
+        if (element.oferta === true) {
+            newArray.push(element)
+        }
+    })
+    console.log(newArray);
+    contenedor.innerHTML = cardsAHtml(newArray)
+    subirAlCarrito()
+
+}
+
+document.querySelector(".btn_ofertas").addEventListener('click', function (e) {
+
+    swal("Ofertas", "Deseas ver solo las ofertas?", {
+            buttons: {
+                cancel: "Cancelar",
+                catch: {
+                    text: "Aceptar",
+                    value: "catch"
+                }
+            }
+        })
+        .then((value) => {
+            if (value === "catch") {
+                document.querySelector(".contenedor").innerHTML = "";
+                validarOfertas(sneakers)
+            }
+        });
+})
+
+
+window.onload = function () {
+    contenedor.innerHTML = cardsAHtml(sneakers)
+};
+
+
+
+// btn todos
+document.querySelector(".btn_todos").addEventListener("click", () => {
+    document.querySelector(".contenedor").innerHTML = "";
+    contenedor.innerHTML = cardsAHtml(sneakers)
+    subirAlCarrito()
+})
+
+
+
+
+// funciones para ordenar
+function ordenarMayor(array) {
+    arr = [...array]
+    orden = arr.sort(((a, b) => b.precio - a.precio))
+    contenedor.innerHTML = cardsAHtml(orden)
+    subirAlCarrito()
+}
+
+function ordenarMenor(array) {
+
+    arr = [...array]
+    orden = arr.sort(((a, b) => a.precio - b.precio))
+    contenedor.innerHTML = cardsAHtml(orden)
+    subirAlCarrito()
+}
+
+
+
+document.querySelector(".btn_ord_mayor").addEventListener("click", () => {
+    document.querySelector(".contenedor").innerHTML = "";
+    ordenarMayor(sneakers)
+})
+
+
+document.querySelector(".btn_ord_menor").addEventListener("click", () => {
+    document.querySelector(".contenedor").innerHTML = "";
+    ordenarMenor(sneakers)
+})
+
+
+
+
+
+
+
+
+
+
+// categorias
+
+function categoriaSandalia(array) {
+    const contenedor = document.querySelector(".contenedor")
+    const sandalias = [...sneakers]
+    sandalias.filter(element => {
+        const ofertasSneakers = [...array]
+        let newArray = []
+        ofertasSneakers.forEach(element => {
+            if (element.categoría === "sandalias") {
+                newArray.push(element)
+            }
+        })
+        console.log(newArray);
+        contenedor.innerHTML = cardsAHtml(newArray)
+        subirAlCarrito()
+    })
+}
+
+
+function categoriaZapatillas(array) {
+    const contenedor = document.querySelector(".contenedor")
+    const sandalias = [...sneakers]
+    sandalias.filter(element => {
+        const ofertasSneakers = [...array]
+        let newArray = []
+        ofertasSneakers.forEach(element => {
+            if (element.categoría === "sneakers") {
+                newArray.push(element)
+            }
+        })
+        console.log(newArray);
+        contenedor.innerHTML = cardsAHtml(newArray)
+        subirAlCarrito()
+    })
+}
+
+document.querySelector(".btn_sandalias").addEventListener("click", () => {
+    document.querySelector(".contenedor").innerHTML = "";
+    categoriaSandalia(sneakers)
+})
+document.querySelector(".btn_sneakers").addEventListener("click", () => {
+    document.querySelector(".contenedor").innerHTML = "";
+    categoriaZapatillas(sneakers)
+})

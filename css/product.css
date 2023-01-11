@@ -177,10 +177,13 @@ input {
 }
 
 .card {
-  display: flex;
+ /* card responsive GRID */
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 20px;
+  width: 250px;
   background-color: transparent;
   color: var(--color);
-  width: 15em;
   margin-top: 40px;
   text-align: left;
   border-style: none;
