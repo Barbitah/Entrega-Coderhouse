@@ -1,5 +1,11 @@
 // Se crea un nuevo array para el carrito
 
+window.onload = function () {
+    contenedor.innerHTML = cardsAHtml(sneakers)
+    subirAlCarrito()
+};
+
+
 let carro = []
 
 const contenedor = document.querySelector(".contenedor")
@@ -133,10 +139,7 @@ document.querySelector(".btn_ofertas").addEventListener('click', function (e) {
 })
 
 
-window.onload = function () {
-    contenedor.innerHTML = cardsAHtml(sneakers)
-    subirAlCarrito()
-};
+
 
 
 

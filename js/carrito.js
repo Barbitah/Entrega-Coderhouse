@@ -142,6 +142,6 @@ document.querySelector(".btn_comprar").addEventListener("click", () => {
     console.log(total.innerHTML);
 })
 
-
+// sweet alert
 
 
