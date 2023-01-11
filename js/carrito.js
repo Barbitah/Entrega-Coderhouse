@@ -93,6 +93,14 @@ actualizarCarrito()
 
 
 
+document.querySelector(".btn_vaciar").addEventListener("click", () => {
+    console.log("hola");
+    window.localStorage.removeItem('carrito');
+    location.reload()
+})
+
+
+
 function total(){
     let ls = JSON.parse(localStorage.getItem("carrito"))
     arr = Object.values(ls)

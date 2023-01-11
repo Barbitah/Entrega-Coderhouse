@@ -5,6 +5,7 @@ window.onload = function () {
     subirAlCarrito()
 };
 
+// 
 
 let carro = []
 
@@ -71,6 +72,10 @@ const buscarProducto = (producto, array) => {
 
 
 //funcion para agregar al carro de compra por LS
+
+
+
+
 
 const subirAlCarrito = () => {
     const botonesCards = document.querySelectorAll(".boton-carrito")
@@ -236,3 +241,4 @@ document.querySelector(".btn_sneakers").addEventListener("click", () => {
     document.querySelector(".contenedor").innerHTML = "";
     categoriaZapatillas(sneakers)
 })
+
