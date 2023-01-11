@@ -104,7 +104,7 @@ function validarOfertas(array) {
     let newArray = []
     ofertasSneakers.forEach(element => {
         if (element.oferta === true) {
-            newArray.push(element)
+            pushearArray(newArray, element)
         }
     })
     console.log(newArray);
@@ -135,6 +135,7 @@ document.querySelector(".btn_ofertas").addEventListener('click', function (e) {
 
 window.onload = function () {
     contenedor.innerHTML = cardsAHtml(sneakers)
+    subirAlCarrito()
 };
 
 
@@ -197,7 +198,7 @@ function categoriaSandalia(array) {
         let newArray = []
         ofertasSneakers.forEach(element => {
             if (element.categoría === "sandalias") {
-                newArray.push(element)
+                pushearArray(newArray, element)
             }
         })
         console.log(newArray);
@@ -215,7 +216,7 @@ function categoriaZapatillas(array) {
         let newArray = []
         ofertasSneakers.forEach(element => {
             if (element.categoría === "sneakers") {
-                newArray.push(element)
+                pushearArray(newArray, element)
             }
         })
         console.log(newArray);

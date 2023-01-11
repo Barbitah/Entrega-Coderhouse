@@ -15,12 +15,14 @@ const obtenerDelLs = (clave) => {
     return JSON.parse(localStorage.getItem("carrito"))
 }
 
+const enviarLs = (clave, valor) => {
+    return localStorage.setItem(clave, JSON.stringify(valor))
+}
+
 let carrito = obtenerDelLs("carrito")
 
 const cardsAHtml = (array) => {
     const arrR = array.reduce((acc, element) => {
-        let taxValor = (element.precio * 0.19)
-        let valorConTax = element.precio - (element.precio * 0.19)
 
         return acc + `
         <div class="card" id="card-${element.id}">
@@ -65,8 +67,9 @@ contenedor.innerHTML = cardsAHtml(obtenerDelLs("carrito"))
 
 const actualizarCarrito = () => {
     const elementC = document.querySelectorAll(".card")
+    const btnCarrito = document.querySelectorAll(".boton-carrito")
     for (let i = 0; i < elementC.length; i++) {
-        elementC[i].onclick = () => {
+        btnCarrito[i].onclick = () => {
             const recortar = elementC[i].id.slice(5)
             const filtrar = carrito.filter((filtrado, index) => {
                 return filtrado.id != recortar
@@ -94,28 +97,51 @@ function total(){
     let ls = JSON.parse(localStorage.getItem("carrito"))
     arr = Object.values(ls)
     let acc = 0
+    let arrayTotal= []
 
     for (let index = 0; index < ls.length; index++) {
         let element = ls[index].precio;
 
-        let total = element + (element * 0.19) + 2500 
-        acc = acc + Math.trunc(total)
+        let total = element 
+        acc =acc + Math.trunc(total)
         console.log(Math.trunc(total));
     }
     console.log("hola "+ acc);
 
     const resumen = document.querySelector(".total-pedido")
-    resumen.innerHTML= "$" + acc
+    resumen.innerHTML=acc
 
     let taxes = acc * 0.19
-    document.querySelector(".total-tax").innerHTML = "$"+Math.trunc(taxes)
+    document.querySelector(".total-tax").innerHTML = Math.trunc(taxes)
 
     let totalFinal = acc + taxes + 2500
-    document.querySelector(".total-final").innerHTML = "$" + Math.trunc(totalFinal)
+    document.querySelector(".total-final").innerHTML = Math.trunc(totalFinal)
 }
 
-
 total()
+
+
+document.querySelector(".btn_comprar").addEventListener("click", () => {
+    const total = document.querySelector(".total-final")
+
+    swal({
+        title: "Resumen del pedido",
+        text: "Total a pagar : "+ total.innerHTML,
+        icon: "success",
+        buttons: "Pagar",
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Recibiras un mail con todos los detalles! Gracias por comprar con nosotros", {
+            icon: "success",
+          });
+        } else {
+          swal("Has cancelado la transacción!");
+        }
+      });
+    console.log(total.innerHTML);
+})
+
 
 
 
