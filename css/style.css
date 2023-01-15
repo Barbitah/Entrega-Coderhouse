@@ -82,9 +82,14 @@ body {
 .form-item:first-child{
   display: none;
 }
-
-.form-item-register{
-  display: block;
+#direccion{
+  display: none;
+}
+#comuna{
+  display: none;
+}
+#pais{
+  display: none;
 }
 
 
@@ -92,6 +97,7 @@ input[type="text"],
 input[type="password"] {
   border: 1px solid black;
   height: 55px;
+  gap: 10px;
   padding: 0 2rem;
   width: 100%;
   outline: none;

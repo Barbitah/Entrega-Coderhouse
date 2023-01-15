@@ -14,7 +14,7 @@
                 <h1>Bienvenido a tu aplicación</h1>
                 <p>Por favor ingresa tus credenciales</p>
             </div>
-            <form class="login-form" id="login-form"agreg>
+            <form class="login-form" id="login-form">
                 <div class="login-form-content">
                     <div class="form-item" id="register">
                         <label id="nameLabel" for="name">Ingresa tu nombre</label>
@@ -28,6 +28,18 @@
                         <label id="passLabel" for="password"> Ingresa tu contraseña</label>
                         <input type="password"  id="password">
                     </div>
+                    <div class="form-item" id="direccion">
+                        <label id="direccionLabel" for="direccion">Ingresa tu dirección</label>
+                        <input type="text" id="inputdireccion">
+                    </div>
+                    <div class="form-item" id="comuna">
+                        <label id="comunaLabel" for="comuna">Ingresa tu comuna</label>
+                        <input type="text" id="inputcomuna">
+                    </div>
+                    <div class="form-item" id="pais">
+                        <label id="paisLabel" for="pais">Ingresa tu pais</label>
+                        <input type="text" id="inputpais">
+                    </div>
                     <div class="form-item">
                         <div class="checkbox">
                             <input type="checkbox" id="showPassword " onclick="showPass()">
@@ -35,8 +47,8 @@
                         </div>
                     </div>
                     <input class="btn_submit" id="btn_submit" type="submit" value="Ingresar">
-                    <input class="btn_registrar" id="btn_registrar" type="submit" onclick="registrarUser()" value="Guardar">
-                    <input class="btn_register" id="btn_register" onclick="myFunction()" type="submit" value="Registrarse">
+                    <input class="btn_registrar" id="btn_registrar" type="button" onclick="registrarUser()" value="Guardar">
+                    <input class="btn_register" id="btn_register" onclick="mostrarRegister()" type="button" value="Registrarse">
                 </div>
                 <div class="login-form-footer">
                     <a href="#">

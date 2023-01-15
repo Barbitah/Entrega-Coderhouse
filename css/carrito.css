@@ -22,23 +22,7 @@ body {
   background-color: var(--background);
 }
 
-@-webkit-keyframes buttonPress {
-  0% {
-    box-shadow: inset 0px 0px 5px 2px var(--feedback__color);
-  }
-  100% {
-    box-shadow: none;
-  }
-}
 
-@keyframes buttonPress {
-  0% {
-    box-shadow: inset 0px 0px 5px 2px var(--feedback__color);
-  }
-  100% {
-    box-shadow: none;
-  }
-}
 .toggle-container {
   width: 70px;
   height: 40px;
@@ -83,7 +67,6 @@ body {
 * {
   padding: 0%;
   margin: 0%;
-  box-sizing: border-box;
 }
 
 .hero {
@@ -157,6 +140,26 @@ footer .by {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.btn_comprar{
+  background-color: rgba(48, 48, 255, 0.947) ;
+  color: white;
+  width: 140px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.btn_vaciar{
+  border: 0;
+  padding: 4px 8px;
+  width: 140px;
+  height: 40px;
+  background-color: #c66;
+  border-radius: 20px;
+  color: #fff;
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+
 }
 
 aside{

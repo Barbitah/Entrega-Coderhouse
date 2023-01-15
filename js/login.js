@@ -1,21 +1,4 @@
 
-const usuarios = [{
-    name: "Cristian",
-    user: "cristian@gmail.com",
-    pass: "coder1",
-}, {
-    name: "Yohana",
-    user: "yohafierro@gmail.com",
-    pass: "yohanafierro1"
-}, {
-    name: "Andres",
-    user: "barbamorales@gmail.com",
-    pass: "coderhouse25"
-}]
-
-
-
-
 const inputUser = document.querySelector("#email")
 const inputName = document.querySelector("#name")
 const inputPass = document.querySelector("#password")
@@ -23,29 +6,65 @@ const formLogin = document.querySelector(".login-form")
 
 formLogin.onsubmit = (e) => {
     e.preventDefault()
-    array = [...usuarios]
-
-    array.forEach(element => {
-        return inputUser.value.toLowerCase() == element.user && inputPass.value.toLowerCase() == element.pass ? window.location.assign("html/home.html") : false
-    });
-
+    fetch("https://63c345978bb1ca34755f8dc8.mockapi.io/users")
+        .then((respuesta) => respuesta.json())
+        .then((data) => {
+            if (validarEmail(inputUser.value) === true) {
+                if (validarPass(inputPass.value.length) === true) {
+                    data.forEach(element => {
+                        if (element.mail === inputUser.value && element.password) {
+                            window.location.assign("html/home.html")
+                            infoAlLs("login" , inputUser.value)
+                        } else {
+                            swal("Error de ingreso", "Credenciales invalidas, vuelva a intentarlo", "warning")
+                        }
+                    });
+                }
+            }
+        })
+        .catch((error) => console.log(error))
 }
 
-function myFunction() {
+
+function validarPass(pass) {
+    return pass >= 8 ? true : swal("Error de ingreso", "La contraseña debe ser mayor a 8 carácteres", "warning")
+}
+
+function validarEmail(email) {
+    let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+    let esValido = expReg.test(email)
+
+    return esValido === true ? true : swal("Error de ingreso", "El correo debe contener un @", "warning")
+}
+
+
+
+function mostrarRegister() {
     let x = document.getElementById("register");
     let y = document.getElementById("btn_registrar");
     let z = document.getElementById("btn_submit");
+    let dir = document.getElementById("direccion");
+    let com = document.getElementById("comuna");
+    let pais = document.getElementById("pais");
+    
     let inp = document.getElementById("btn_register")
 
 
     if (x.style.display === "none" && inp.value === "Registrarse") {
         x.style.display = "block";
         y.style.display = "block";
+        dir.style.display = "block";
+        com.style.display = "block";
+        pais.style.display = "block";
         z.style.display = "none";
         inp.value = "Volver"
     } else {
         x.style.display = "none";
         y.style.display = "none";
+        dir.style.display = "none";
+        com.style.display = "none";
+        pais.style.display = "none";
         z.style.display = "block";
         inp.value = "Registrarse"
 
@@ -56,89 +75,50 @@ function myFunction() {
 
 function registrarUser() {
 
-    let n = document.querySelector("#name").value
-    let e = document.querySelector("#email").value
-    let p = document.querySelector("#password").value
-    
+    let n = document.querySelector("#name")
+    let e = document.querySelector("#email")
+    let p = document.querySelector("#password")
+    let dir = document.getElementById("inputdireccion");
+    let com = document.getElementById("inputcomuna");
+    let pais = document.getElementById("inputpais");
 
-    arr = [...usuarios]
 
-    if (n != "" && e != "" && p != "") {
-        if (p.length >= 8) {
-            if (validarEmail(e.toLowerCase()) === true) {
-                usuarios.push({
-                    name: document.querySelector("#name").value,
-                    user: document.querySelector("#email").value,
-                    pass: document.querySelector("#password").value
-                })
-                infoAlLs("user", e)
-                swal({
-                    title: "Usuario Registrado",
-                    text: "El usuario fue ingresado correctamente",
-                    icon: "succes",
-                    button: "Aceptar"
-                })
-                window.location.assign("html/home.html")
-                console.table(usuarios);
+    if (n.value != "") {
+        if (validarEmail(e.value) === true) {
+            if (validarPass(p.value.length) === true) {
+                if (dir.value != "" && com.value != "" && pais.value != "") {
+                    fetch("https://63c345978bb1ca34755f8dc8.mockapi.io/users", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            name: n.value,
+                            mail: e.value,
+                            password: p.value,
+                            street: dir.value,
+                            state: com.value,
+                            country: pais.value
+                        }),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        window.location.assign("html/home.html")
+                        infoAlLs("login" , e.value)
+                    })
+                } else {
+                    swal("Error de Ingreso", "Debe completar todos los campos", "warning")
+                }    
             }
-        }else{
-            console.log(p);
-            swal({
-                title: "Error de registro",
-                text: "La contraseña debe ser mayor a 8 caracteres",
-                icon: "warning",
-                button: "Aceptar"
-            })
         }
     } else {
-        swal({
-            title: "Error de registro",
-            text: "Debes llenar todos los campos",
-            icon: "warning",
-            button: "Aceptar"
-        })
+        swal("Error de Ingreso", "Debe completar todos los campos", "warning")
     }
-
-    // usuarios.push({
-    //     name: document.querySelector("#name").value,
-    //     user: document.querySelector("#email").value,
-    //     pass: document.querySelector("#password").value
-    // })
-    // debugger
-    // console.log("usuario ingresado");
-    // console.table(usuarios);
-}
-
-
-function validarEmail(email){
-    let expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-
-    let esValido = expReg.test(email)
-
-    return esValido === true ? true : swal("Error de registro", "el correo debe contener @","warning")
-
 }
 
 
 
-//PENDIENTE
-
-// function validarUser(mail){
-//     mail = document.querySelector("#email").value
-//     array = [...usuarios]
-
-//     array.forEach(element => {
-
-//         if (element.user != mail) {
-//             return true
-//         }else{
-//             swal("El correo ya se encuentra registrado")
-//         }
-
-
-//     });
-
-// }
 
 
 
@@ -159,22 +139,22 @@ function showPass() {
 
 //FUNCIONES LS
 
-const infoAlLs = ( key, value ) => {
-    localStorage.setItem( key, JSON.stringify(value))
+const infoAlLs = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value))
 }
 
-const infoLs = ( key, value ) => {
+const infoLs = (key, value) => {
     const transformarAJson = JSON.stringify(value)
     localStorage.setItem(key, transformarAJson)
 }
 
 // 
 
-const obtenerLS = ( key ) => {
+const obtenerLS = (key) => {
     const bajarDelLs = localStorage.getItem(key)
     return JSON.parse(bajarDelLs)
 }
 
-const obtenerDelLs = ( key ) => {
+const obtenerDelLs = (key) => {
     return JSON.parse(localStorage.getItem(key))
 }
