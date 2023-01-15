@@ -1,7 +1,6 @@
-// Se crea un nuevo array para el carrito
-
 window.onload = function () {
     contenedor.innerHTML = cardsAHtml(sneakers)
+    subirAlCarrito()
 };
 
 // 
@@ -59,6 +58,7 @@ function cargarOfertas() {
 
 cargarOfertas()
 
+// se llama al contenedor para imprimir al card
 
 
 // se crea funcion para comparar el ID con el array
@@ -118,6 +118,7 @@ function validarOfertas(array) {
     })
     console.log(newArray);
     contenedor.innerHTML = cardsAHtml(newArray)
+    subirAlCarrito()
 
 }
 
@@ -149,6 +150,7 @@ document.querySelector(".btn_ofertas").addEventListener('click', function (e) {
 document.querySelector(".btn_todos").addEventListener("click", () => {
     document.querySelector(".contenedor").innerHTML = "";
     contenedor.innerHTML = cardsAHtml(sneakers)
+    subirAlCarrito()
 })
 
 
@@ -159,6 +161,7 @@ function ordenarMayor(array) {
     arr = [...array]
     orden = arr.sort(((a, b) => b.precio - a.precio))
     contenedor.innerHTML = cardsAHtml(orden)
+    subirAlCarrito()
 }
 
 function ordenarMenor(array) {
@@ -166,6 +169,7 @@ function ordenarMenor(array) {
     arr = [...array]
     orden = arr.sort(((a, b) => a.precio - b.precio))
     contenedor.innerHTML = cardsAHtml(orden)
+    subirAlCarrito()
 }
 
 
@@ -205,6 +209,7 @@ function categoriaSandalia(array) {
         })
         console.log(newArray);
         contenedor.innerHTML = cardsAHtml(newArray)
+        subirAlCarrito()
     })
 }
 
@@ -222,6 +227,7 @@ function categoriaZapatillas(array) {
         })
         console.log(newArray);
         contenedor.innerHTML = cardsAHtml(newArray)
+        subirAlCarrito()
     })
 }
 
@@ -233,4 +239,3 @@ document.querySelector(".btn_sneakers").addEventListener("click", () => {
     document.querySelector(".contenedor").innerHTML = "";
     categoriaZapatillas(sneakers)
 })
-
