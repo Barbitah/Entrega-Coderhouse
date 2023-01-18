@@ -18,7 +18,7 @@ function actualizarNro() {
 
     if (nro === null) {
         carroNro.innerHTML = "0"
-    }else{
+    } else {
         carroNro.innerHTML = nro.length
     }
 }
@@ -144,7 +144,7 @@ document.querySelector(".btn_comprar").addEventListener("click", () => {
     let comuna = ""
     let pais = ""
 
-    
+
 
     fetch("https://63c345978bb1ca34755f8dc8.mockapi.io/users")
         .then((respuesta) => respuesta.json())
@@ -167,21 +167,77 @@ document.querySelector(".btn_comprar").addEventListener("click", () => {
         })
         .then((willDelete) => {
             if (willDelete) {
-                swal( {
-                    text: `Recibiras tus productos en la dirección :
+                swal("Estás seguro que deseas finalizar la compra?", {
+                        buttons: {
+                            cancel: "Volver",
+                            catch: {
+                                text: "Finalizar!",
+                                value: "catch",
+                            }
+                        },
+                    })
+                    .then((value) => {
+                        switch (value) {
 
-                    📩 👟
+                            case "catch":
+                                swal({
+                                        text: `Recibiras tus productos en la dirección :
 
-                    Dirección: ${dirección}
+                                        📩 👟
 
-                    Comuna: ${comuna}
-                    
-                    Pais: ${pais}
-                    
-                    En 48 horas hábiles
-                    `,
-                    icon: "success",
-                });
+                                        Dirección: ${dirección}
+
+                                        Comuna: ${comuna}
+                                        
+                                        Pais: ${pais}
+                                        
+                                        En 48 horas hábiles
+                                        `,
+                                        icon: "success",
+                                        buttons: "Cerrar",
+                                    });
+                                    window.localStorage.removeItem('carrito');
+                                    break;
+
+                            default:
+                                swal("Recuerda volver a finalizar tu compra!");
+                        }
+                    });
+
+
+                // swal({
+                //         text: `Recibiras tus productos en la dirección :
+
+                //     📩 👟
+
+                //     Dirección: ${dirección}
+
+                //     Comuna: ${comuna}
+
+                //     Pais: ${pais}
+
+                //     En 48 horas hábiles
+                //     `,
+                //         icon: "success",
+                //         catch: {
+                //             text: "Finalizar",
+                //             value: "catch"
+                //         }
+                //     })
+                //     .then((value) => {
+                //         switch (value) {
+
+                //             case "catch":
+                //                 window.localStorage.removeItem('carrito');
+                //                 location.reload()
+                //                 break;
+
+                //             default:
+                //                 swal("No olvides volver para concretar tu compra!!");
+                //         }
+                //     });
+
+
             } else {
                 swal("Has cancelado la transacción!");
             }
