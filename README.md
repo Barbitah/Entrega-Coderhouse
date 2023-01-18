@@ -17,18 +17,20 @@
 
 <p align="center">
 <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank"> 
-            <img src="https://www.freepnglogos.com/uploads/javascript-png/javascript-logo-transparent-logo-javascript-images-3.png" alt="javascript" width="70" height="70"/> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png" alt="html" width="70" height="70"/> 
+</a> 
+<a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank"> 
+            <img src="https://www.freepnglogos.com/uploads/html5-logo-png/html5-logo-css-logo-png-transparent-svg-vector-bie-supply-9.png" alt="css" width="80" height="70"/> 
+</a> 
+<a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank"> 
+            <img src="https://1000marcas.net/wp-content/uploads/2020/11/JavaScript-logo.png" alt="javascript" width="100" height="70"/> 
 </a> 
 <a href="https://getbootstrap.com/" target="_blank"> 
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1280px-Bootstrap_logo.svg.png" alt="boostrap" width="70" height="70"/>  
   </a>
-  <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank"> 
-    <img src="https://assets.stickpng.com/images/5847f5bdcef1014c0b5e489c.png" alt="html" width="70" height="70"/>  
-  </a>
   <a href="https://sass-lang.com/" target="_blank"> 
             <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/sass-1-logo.png" alt="sass" width="70" height="70"/> 
 </a>                     
-
   
 &nbsp;
   
