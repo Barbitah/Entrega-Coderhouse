@@ -1,28 +1,29 @@
-window.onload = function () {
-    contenedor.innerHTML = cardsAHtml(sneakers)
-    subirAlCarrito()
-};
-
-// 
-
+// Array para subir al carro 
 let carro = []
 
-const contenedor = document.querySelector(".contenedor")
+
+let contenedor = document.querySelector(".contenedor")
+
+
+
 
 // funciones para LS
 const enviarLs = (clave, valor) => {
     return localStorage.setItem(clave, JSON.stringify(valor))
 }
-
-const pushearArray = (array, value) => {
-    array.push(value)
-}
-
-const obtenerDelLs = (clave) => {
+const obtenerLocal = (clave) => {
     return JSON.parse(localStorage.getItem(clave))
 }
 
+//Funcion de orden superior para subir al carrito
+const pushearArray = (array, value) => {
+    array.push(value)
+}
+//Variables Globales
+const carritoActualizado = obtenerLocal("carrito") || []
 
+
+// Impimir cards de productos
 
 const cardsAHtml = (array) => {
     const arrayReducido = array.reduce((acc, element) => {
@@ -37,6 +38,7 @@ const cardsAHtml = (array) => {
                 <h5>
                     $${element.precio}
                 </h5>
+                <h6>${element.descripción}</h6>
                 <button class="boton-carrito" id="button-${element.id}">Añadir al carrito</button>     
             </div>
         `
@@ -44,7 +46,9 @@ const cardsAHtml = (array) => {
     return arrayReducido
 }
 
+contenedor.innerHTML = cardsAHtml(sneakers)
 
+// Aplicar descuento a productos
 function cargarOfertas() {
     const ofertasSneakers = [...sneakers]
     ofertasSneakers.filter(element => {
@@ -56,9 +60,8 @@ function cargarOfertas() {
     })
 }
 
+// se cargan las ofertas al cargar html
 cargarOfertas()
-
-// se llama al contenedor para imprimir al card
 
 
 // se crea funcion para comparar el ID con el array
@@ -68,13 +71,29 @@ const buscarProducto = (producto, array) => {
     })
 }
 
+function validarID(id) {
+    let carr = obtenerLocal("carrito")
+    carr.forEach(element => {
+        return element.id === id ? true : false
+    });
+}
+
+function actualizarNro() {
+    let nro = JSON.parse(localStorage.getItem("carrito"))
+    let carroNro = document.querySelector(".numerito")
+
+
+    if (nro === null) {
+        carroNro.innerHTML = "0"
+    }else{
+        carroNro.innerHTML = nro.length
+    }
+}
+
+
+
 
 //funcion para agregar al carro de compra por LS
-
-
-
-
-
 const subirAlCarrito = () => {
     const botonesCards = document.querySelectorAll(".boton-carrito")
     botonesCards.forEach(boton => {
@@ -91,16 +110,15 @@ const subirAlCarrito = () => {
 
 subirAlCarrito()
 
-const carritoActualizado = obtenerDelLs("carrito") || []
+
 carro = carritoActualizado
 
 
-function actualizarNro() {
-    nro = JSON.parse(localStorage.getItem("carrito"))
-    let carroNro = document.querySelector(".numerito")
-    carroNro.innerHTML = nro.length
-}
-actualizarNro()
+
+
+
+
+//Funcion para cargar el carro de compras
 
 
 
@@ -143,6 +161,20 @@ document.querySelector(".btn_ofertas").addEventListener('click', function (e) {
 
 
 
+// FUNCIONALIDADES FILTROS
+
+const searchForm = document.querySelector(".d-flex")
+
+searchForm.onsubmit = (e) => {
+    e.preventDefault()
+    document.querySelector(".contenedor").innerHTML = "";
+    if (document.querySelector("#searchText").value === "") {
+        cardsAHtml(sneakers)
+    } else {
+        searchProduct(sneakers)
+    }
+}
+
 
 
 
@@ -184,14 +216,6 @@ document.querySelector(".btn_ord_menor").addEventListener("click", () => {
     document.querySelector(".contenedor").innerHTML = "";
     ordenarMenor(sneakers)
 })
-
-
-
-
-
-
-
-
 
 
 // categorias
@@ -239,3 +263,12 @@ document.querySelector(".btn_sneakers").addEventListener("click", () => {
     document.querySelector(".contenedor").innerHTML = "";
     categoriaZapatillas(sneakers)
 })
+
+
+window.onload = function () {
+    contenedor.innerHTML = cardsAHtml(sneakers)
+    subirAlCarrito()
+    actualizarNro()
+};
+
+

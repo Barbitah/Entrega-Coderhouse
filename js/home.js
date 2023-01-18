@@ -1,6 +1,9 @@
+// función para darkmode
 
-  function toggleMode() {
-    const toggleState = document.getElementById("toggle");
+let botonToggle = document.querySelector(".toggle-container")
+
+botonToggle.onclick = () => {
+  const toggleState = document.getElementById("toggle");
 
     if (toggleState.classList.contains("toggle-dark")) {
       toggleState.classList.remove("toggle-dark");
@@ -28,7 +31,8 @@
       );
       localStorage.setItem("darkMode", "dark")
     }
-  }
+}
+  
 
 
 function chargeDarkMode(){

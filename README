@@ -1,103 +1,109 @@
-Comentarios en //
-
-// el login, corresponde a una entrega anterior, los conocimientos para este están deprecados, pero se adjunta de igual manera para continuar el hilo para la entrega final
-
-
-EL USO DE DOM, SASS, HTML Y CSS NO ESTABAN DENTRO DE LAS ESPECIFICACIONES DE LA ENTREGA, PERO A MODO DE PRACTICA SE INCLUYERON
-
-credenciales:
-
-cristian@gmail.com
-coder1
+<h1 align="center">Sneaker Shop</h1>
+<p align="center">
+    <img src="https://imgur.com/WVw0AWY.png" alt="imagen-desktop" width="600p"/>            
+</p>
+&nbsp;
 
 
-CASO ECOMMERCE
+<h2>
+    Proyecto JavaScript : "SneakerShop"
+</h2>
 
-* TODO TIENEN QUE ESTAR DENTRO DE FUNCIONES 
-// funciones para cada acción ✅
-
-
-* LA ÚNICA VARIABLE GLOBAL VA A SER LA DEL ARRAY 
-* EL ARRAY DE OBJETOS PUEDE ESTAR EN EL MISMO CÓDIGO O EN OTRO ARCHIVO ✅
-// en el archivo sneakers.js se encuentra el array respectivo
-
-
-1) Hacer un array de objetos que tenga 15 productos. Cada objeto deberá tener las siguientes propiedades:
-    - id --> number
-    - producto --> nombre del producto
-    - precio --> number
-    - fechaVencimiento (en el caso de que tenga una) ---> string
-    - descripción --> string
-    - categoría (si tiene una) ---> string
-    - oferta (booleano) --> true o false 
-
-//en archivo sneakers.js se encuentra el array con los objetos
-
-Quiero que algunos de los elementos tengan un true en oferta. ✅
-// los productos con ID 1,2,3,7,9 y 12 se encuentran con oferta vigente
+<p>
+    Entrega del proyecto final para la comisión 48130 de Coderhouse
+</p>
+&nbsp;
 
 
+<p align="center">
+<a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank"> 
+            <img src="https://www.freepnglogos.com/uploads/javascript-png/javascript-logo-transparent-logo-javascript-images-3.png" alt="javascript" width="70" height="70"/> 
+</a> 
+<a href="https://getbootstrap.com/" target="_blank"> 
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1280px-Bootstrap_logo.svg.png" alt="boostrap" width="70" height="70"/>  
+  </a>
+  <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank"> 
+    <img src="https://assets.stickpng.com/images/5847f5bdcef1014c0b5e489c.png" alt="html" width="70" height="70"/>  
+  </a>
+  <a href="https://sass-lang.com/" target="_blank"> 
+            <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/sass-1-logo.png" alt="sass" width="70" height="70"/> 
+</a>                     
 
-2) Utilizar un método de array que verifique si oferta es true, en el caso de que lo sea, haga un 15%, 5%, 20%, 10% de descuento (elijan el descuento que quieran).✅
-// se utilizó un 20% de descuento para los productos con oferta
+  
+&nbsp;
+  
 
+<h2>
+    Pauta de evaluación:
+</h2>
 
+<h3>
+    Los requisitos mínimos para que el proyecto sea considerado para la entrega son:
+</h3>
+&nbsp;
 
-3) Utilizando un método de array, que ordene a los elementos de manera alfabética (a - z o z - a), como ustedes prefieran. También pueden ordenar por número de id (ascendente o descendente).
-Usen este método haciendo una copia segura del array. Pueden copiar el array de manera segura con los siguientes métodos: 
-    - [...array] ---> spread operator
-    - array.slice() ---> copia segura en otra variable
-    - [].concat(array) ---> copia segura en otra variable✅
-// en cada interacción del array se genera un spread operator como copia segura, de igual manera se puede ordnear por precio ya que el filtro para ordenar es a elección
-
-
-
-
-
-4) A través de un confirm, pregúntele al usuario si quiere ver las ofertas de la tienda. En el caso de que si, entonces con filter, filtre el array y que muestre en consola cada una de las ofertas. ✅
-// al precionar el BTN ofertas se genera un confirm para consultar al usuario si desea visualizar ofertas, al realizar esto, se cambia la lista de productos y el precio respectivo
+* 📝 Variables
+* 📝 Datos primitivos y datos objeto: string, number, boolean, arrays y objetos.
+* 📝 Operadores (aritméticos y condicionales)
+* 📝 Estructuras condicionales.
+* 📝 Bucles o métodos de arrays.
+* 📝 Funciones
+* 📝 Storage: localStorage y/o sessionStorage
+* 📝 DOM
+* 📝 Eventos
+* 📝 Librerías
+* 📝 Fetch: API o JSON
+&nbsp;
 
 
 
-5) A través de un prompt, permita al usuario buscar productos. Una vez que ingrese un producto, busquen con find dicho producto y muestrelo en un alert().  ✅
+<h2>
+   Funcionalidades principales#
+</h2>
+&nbsp;
 
-// al pinchar los BTN buscar por ID y buscar por Nombre el usuario puede realizar una busqueda, el nombre del producto debe ser exacto al que se encuentra en el objeto. (puede ser cualquier nombre copiado y pegado del array)
-
-Nombres a usar:
-FORUM LOW
-ZAPATILLAS FORUM 84
-SANDALIAS AQUA
-ZAPATILLAS HOOPS
-
-
-
-
-
-// actualización 24-12-2022
-
-Se agregan operadores ternarios
-se ingresan varibles de login a LocalStorage
-
-// actualización 27-12-2022
-Se agrega array para usuarios
-Se agrega validación con user de array
-
-// actualización 29-12-2022
-se agrega funcionalidad a input search para buscar por product name
-se sube a github
-
-
-
-//
-FUNCIONALIDADES PARA 3 PRE ENTREGA
-
-LOCALSTORAGE EN USER INGRESADO AL LOGIN O REGISTER
-
-LOCALSTORAGE EN DARKMODE
-
-EVENTOS 
-
-DOM
-
-
-Se agrega Sweet alert
+* Modo oscuro: El usuario debe poder elegir si, al navegar en la web, el modo en el cual
+se visualiza la interfaz sea en claro u oscuro. Este modo tiene que otorgar la posibilidad
+de que perdure en el tiempo, es decir, una vez que el usuario defina su preferencia, el
+modo debe persistir a un cierre de pestaña o navegador. El botón que desencadene el
+evento, debe hallarse visible en la barra de navegación, desde todos los apartados de
+la página web.
+* La barra de navegación debe poder permitir movilidad y ser vista desde todos los
+apartados. El traslado entre los apartados puede darse a través de diferentes archivos
+HTML o bien con la habilitación/deshabilitación de la visibilidad de los contenedores
+en donde se desarrollan. Esta nav debe permitirle al usuario poder desplazarse entre
+las siguientes secciones: HOME, PRODUCTOS, CARRITO Y CONTACTO.
+* Se precisará un footer que tenga información de contacto, la cual puede ser falsa. Este
+pie de página debe ser visualizado desde todos los apartados de la web.
+* SECCIÓN HOME: Se debe poder visualizar un Carrousel, el cual puede ser
+implementado a través de librerías. Como sugerencia Swiper. Este elemento debe
+mostrar imágenes relacionadas al contenido de la web. A su vez, el home debe
+visualizar productos en oferta y que los mismos puedan ser añadidos al carrito desde
+allí.
+* SECCIÓN PRODUCTOS: El usuario debe poder visualizar todos los productos que
+ofrezca la tienda, estos productos no pueden estar maquetados desde HTML, deben
+realizarse con el método fetch y además incluir los nodos de los productos desde js. A
+su vez, la web debe darle la posibilidad al usuario de que ordene estos productos de
+manera ascendente (A-Z) o descendente (Z-A) y que este comportamiendo genere que
+los cambios se apliquen en el instante en el cual se desencadeno el evento. También se
+pueden filtrar y visualizar por oferta. Estos productos deben poder añadirse al carrito
+desde un botón, que se debe encontrar incluido en la tarjeta del producto.
+* SECCIÓN CARRITO: Los productos añadidos desde HOME o PRODUCTOS, deben poder
+visualizarse en este apartado en forma de lista (no necesariamente se debe hacer una
+tabla), a través de JS. A su vez se debe permitir que el usuario elimine un elemento del
+carrito o elimine todos los elementos del carrito. En esta sección, nos concentraremos
+en el cierre de la venta, por lo tanto debemos tener en cuenta de que una vez de que
+el usuario terminó con el proceso, los productos no deben persistir en el carrito de
+compras. Se debe, mediante un evento, enviar una notificación al usuario que exprese
+la finalización de dicho transcurso.
+* SECCIÓN CONTACTO: En este apartado, el usuario tendrá la posibilidad de poder llenar
+un formulario, que permita contactarse con la empresa. Este formulario tiene que
+validar que los datos que se ingresar son correctos. Ej: el campo que reciba un mail,
+debe cotejar que el dato ingresado contenga una @, distintiva de este tipo de recurso,
+que un campo nombre debe tener más de 2 caracteres, etc.
+&nbsp;
+  
+  
+<p align="">💯 Link al proyecto: <a href="https://barbitah.github.io/Preentrega2-Barba/" target="_blank">SneakerShop</a></p>
+  
+  

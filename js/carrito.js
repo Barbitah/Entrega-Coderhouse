@@ -1,29 +1,39 @@
-function actualizarNro() {
-    nro = JSON.parse(localStorage.getItem("carrito"))
-    let carroNro = document.querySelector(".numerito")
-    carroNro.innerHTML = nro.length
-}
-actualizarNro()
+// FUNCTION LS
 
-
-
-
-
-/////////////////////////////////////////
-
-const obtenerDelLs = (clave) => {
-    return JSON.parse(localStorage.getItem("carrito"))
+const ObtenerLocal = (clave) => {
+    return JSON.parse(localStorage.getItem(clave))
 }
 
-const enviarLs = (clave, valor) => {
+const enviarLocal = (clave, valor) => {
     return localStorage.setItem(clave, JSON.stringify(valor))
 }
 
-let carrito = obtenerDelLs("carrito")
+
+// función actualizar innerHtml nro productos en el carro
+
+function actualizarNro() {
+    let nro = JSON.parse(localStorage.getItem("carrito"))
+    let carroNro = document.querySelector(".numerito")
+
+
+    if (nro === null) {
+        carroNro.innerHTML = "0"
+    }else{
+        carroNro.innerHTML = nro.length
+    }
+}
+
+actualizarNro()
+
+
+////Imprimir LS en carrito
+
+
+
+let carrito = ObtenerLocal("carrito")
 
 const cardsAHtml = (array) => {
     const arrR = array.reduce((acc, element) => {
-
         return acc + `
         <div class="card" id="card-${element.id}">
 
@@ -63,7 +73,7 @@ const cardsAHtml = (array) => {
 
 
 const contenedor = document.querySelector(".container")
-contenedor.innerHTML = cardsAHtml(obtenerDelLs("carrito"))
+contenedor.innerHTML = cardsAHtml(ObtenerLocal("carrito"))
 
 const actualizarCarrito = () => {
     const elementC = document.querySelectorAll(".card")
@@ -101,23 +111,22 @@ document.querySelector(".btn_vaciar").addEventListener("click", () => {
 
 
 
-function total(){
+function total() {
     let ls = JSON.parse(localStorage.getItem("carrito"))
     arr = Object.values(ls)
     let acc = 0
-    let arrayTotal= []
+    let arrayTotal = []
 
     for (let index = 0; index < ls.length; index++) {
         let element = ls[index].precio;
 
-        let total = element 
-        acc =acc + Math.trunc(total)
+        let total = element
+        acc = acc + Math.trunc(total)
         console.log(Math.trunc(total));
     }
-    console.log("hola "+ acc);
 
     const resumen = document.querySelector(".total-pedido")
-    resumen.innerHTML=acc
+    resumen.innerHTML = acc
 
     let taxes = acc * 0.19
     document.querySelector(".total-tax").innerHTML = Math.trunc(taxes)
@@ -131,25 +140,51 @@ total()
 
 document.querySelector(".btn_comprar").addEventListener("click", () => {
     const total = document.querySelector(".total-final")
+    let dirección = ""
+    let comuna = ""
+    let pais = ""
+
+    
+
+    fetch("https://63c345978bb1ca34755f8dc8.mockapi.io/users")
+        .then((respuesta) => respuesta.json())
+        .then((data) => {
+            data.forEach(element => {
+                if (ObtenerLocal("login") === element.mail) {
+                    dirección = element.street
+                    comuna = element.state
+                    pais = element.country
+                }
+            });
+        })
+        .catch((error) => console.log(error))
 
     swal({
-        title: "Resumen del pedido",
-        text: "Total a pagar : "+ total.innerHTML,
-        icon: "success",
-        buttons: "Pagar",
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          swal("Recibiras un mail con todos los detalles! Gracias por comprar con nosotros", {
+            title: "Resumen del pedido",
+            text: "Total a pagar : " + total.innerHTML,
             icon: "success",
-          });
-        } else {
-          swal("Has cancelado la transacción!");
-        }
-      });
+            buttons: "Pagar",
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal( {
+                    text: `Recibiras tus productos en la dirección :
+
+                    📩 👟
+
+                    Dirección: ${dirección}
+
+                    Comuna: ${comuna}
+                    
+                    Pais: ${pais}
+                    
+                    En 48 horas hábiles
+                    `,
+                    icon: "success",
+                });
+            } else {
+                swal("Has cancelado la transacción!");
+            }
+        });
     console.log(total.innerHTML);
 })
-
-// sweet alert
-
-

@@ -148,6 +148,7 @@ img {
 
 
 .texto {
+
   position: absolute;
   top: 25%;
   left: 10px;
@@ -394,11 +395,8 @@ b{
 @media screen and (min-width: 480px) and (max-width:768px) {
   .texto{
     position: absolute;
-    top: 72vh;
+    top: 26vh;
     font-size: 12px;
-  }
-  .texto p,h2{
-    display: none;
   }
   .toggle-container{
     display: none;
@@ -411,13 +409,12 @@ b{
     top: 10vh;
     left: auto;
     font-size: 12px;
-    color: black;
   }
   .section-argentina{
     display: none;
   }
   .container p,h2{
-    color: white;
+    color: var(--color);
   }
   .navbar-brand{
     margin-left: -30px;

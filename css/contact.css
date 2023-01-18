@@ -1,0 +1,15 @@
+#container{
+    height: 800px;
+}
+
+
+@media screen and (min-width: 100px) and (max-width:770px) {
+    .col-md-4{
+        display: none;
+    }
+    .toggle-container{
+        position: absolute;
+        top: 15%;
+        right: 3%;
+      }
+  }

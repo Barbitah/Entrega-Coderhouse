@@ -133,16 +133,14 @@ input {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 50px;
+  margin: 80px;
 }
 
 .filter {
   position: absolute;
+  width: 300px;
+  height: 100vh;
   color: var(--background);
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  flex-wrap: wrap;
   align-content: space-around;
   padding: 20px;
   color: var(--color);
@@ -485,7 +483,45 @@ footer .by p {
     right: 3%;
   }
   .contenedor{
-    margin-left: 9%;
+    margin-left: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+@media screen and (min-width: 1436px) and (max-width:1500px) {
+
+  .toggle-container{
+    position: absolute;
+    top: 22%;
+    right: 3%;
+  }
+  .contenedor{
+    margin-left: 12rem;
+  }
+  .contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width:1430px) {
+
+  .toggle-container{
+    position: absolute;
+    top: 22%;
+    right: 3%;
+  }
+  .contenedor{
+    margin-left: 12rem;
+  }
+  .contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -499,6 +535,11 @@ footer .by p {
   .filter{
     display: none;
   }
+  .contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (min-width: 480px) and (max-width:768px) {
@@ -508,6 +549,11 @@ footer .by p {
   }
   .filter{
     display: none;
+  }
+  .contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

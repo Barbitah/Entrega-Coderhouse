@@ -1,8 +1,20 @@
-
+// Variables globales
 const inputUser = document.querySelector("#email")
 const inputName = document.querySelector("#name")
 const inputPass = document.querySelector("#password")
 const formLogin = document.querySelector(".login-form")
+
+
+
+//FUNCIONES LS
+
+const enviarLocal = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value))
+}
+
+
+// 
+
 
 formLogin.onsubmit = (e) => {
     e.preventDefault()
@@ -14,9 +26,7 @@ formLogin.onsubmit = (e) => {
                     data.forEach(element => {
                         if (element.mail === inputUser.value && element.password) {
                             window.location.assign("html/home.html")
-                            infoAlLs("login" , inputUser.value)
-                        } else {
-                            swal("Error de ingreso", "Credenciales invalidas, vuelva a intentarlo", "warning")
+                            enviarLocal("login", inputUser.value)
                         }
                     });
                 }
@@ -26,6 +36,7 @@ formLogin.onsubmit = (e) => {
 }
 
 
+//funciones de orden superior
 function validarPass(pass) {
     return pass >= 8 ? true : swal("Error de ingreso", "La contraseña debe ser mayor a 8 carácteres", "warning")
 }
@@ -39,15 +50,37 @@ function validarEmail(email) {
 }
 
 
+document.querySelector("#showPassword").onclick = () => {
+    let pass = document.querySelector("#password")
+    if (pass.type === "password") {
+        pass.type = "text"
+    } else {
+        pass.type = "password"
+    }
+}
 
-function mostrarRegister() {
+
+function showPass() {
+
+
+    if (pass.type === "password") {
+        pass.type = "text"
+    } else {
+        pass.type = "password"
+    }
+}
+
+
+//Toggle campos para register
+
+document.querySelector("#btn_register").onclick = () => {
     let x = document.getElementById("register");
     let y = document.getElementById("btn_registrar");
     let z = document.getElementById("btn_submit");
     let dir = document.getElementById("direccion");
     let com = document.getElementById("comuna");
     let pais = document.getElementById("pais");
-    
+
     let inp = document.getElementById("btn_register")
 
 
@@ -72,9 +105,8 @@ function mostrarRegister() {
 }
 
 
-
-function registrarUser() {
-
+// función para registrar usuario
+document.querySelector("#btn_registrar").onclick = () => {
     let n = document.querySelector("#name")
     let e = document.querySelector("#email")
     let p = document.querySelector("#password")
@@ -88,73 +120,31 @@ function registrarUser() {
             if (validarPass(p.value.length) === true) {
                 if (dir.value != "" && com.value != "" && pais.value != "") {
                     fetch("https://63c345978bb1ca34755f8dc8.mockapi.io/users", {
-                        method: "POST",
-                        body: JSON.stringify({
-                            name: n.value,
-                            mail: e.value,
-                            password: p.value,
-                            street: dir.value,
-                            state: com.value,
-                            country: pais.value
-                        }),
-                        headers: {
-                            "Content-Type": "application/json"
-                        }
-                    })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        window.location.assign("html/home.html")
-                        infoAlLs("login" , e.value)
-                    })
+                            method: "POST",
+                            body: JSON.stringify({
+                                name: n.value,
+                                mail: e.value,
+                                password: p.value,
+                                street: dir.value,
+                                state: com.value,
+                                country: pais.value
+                            }),
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            window.location.assign("html/home.html")
+                            infoAlLs("login", e.value)
+                        })
                 } else {
                     swal("Error de Ingreso", "Debe completar todos los campos", "warning")
-                }    
+                }
             }
         }
     } else {
         swal("Error de Ingreso", "Debe completar todos los campos", "warning")
     }
-}
-
-
-
-
-
-
-
-
-function showPass() {
-    let pass = document.getElementById("password");
-
-    if (pass.type === "password") {
-        pass.type = "text"
-    } else {
-        pass.type = "password"
-    }
-}
-
-
-
-
-//FUNCIONES LS
-
-const infoAlLs = (key, value) => {
-    localStorage.setItem(key, JSON.stringify(value))
-}
-
-const infoLs = (key, value) => {
-    const transformarAJson = JSON.stringify(value)
-    localStorage.setItem(key, transformarAJson)
-}
-
-// 
-
-const obtenerLS = (key) => {
-    const bajarDelLs = localStorage.getItem(key)
-    return JSON.parse(bajarDelLs)
-}
-
-const obtenerDelLs = (key) => {
-    return JSON.parse(localStorage.getItem(key))
 }
