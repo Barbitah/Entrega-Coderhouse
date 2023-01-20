@@ -111,32 +111,34 @@ input:focus {
   position: absolute;
   width: 300px;
   height: 100vh;
-  color: var(--background);
+  color: var(--color);
   align-content: space-around;
   padding: 20px;
-  color: var(--color);
 }
 
 .filter h5 {
   font-size: 17px;
   display: flex;
-  color: var(--color);
   justify-content: flex-start;
   flex-direction: row;
   margin-left: 32px;
   margin-top: 20px;
+  
 }
 
 .filter input{
   color: var(--color);
+  background-color: transparent;
 }
 
 
 .boton-carrito {
   border: 0;
   padding: 4px 8px;
-  background-color: rgba(54, 19, 248, 0.827);
-  color: #fff;
+  width: 200px;
+  height: 40px;
+  background-color: rgba(19, 139, 231, 0.773);
+  color: rgb(255, 255, 255);
   font-size: 12px;
   border-radius: 3px;
 }

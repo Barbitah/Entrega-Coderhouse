@@ -46,6 +46,8 @@ const cardsAHtml = (array) => {
     return arrayReducido
 }
 
+
+
 contenedor.innerHTML = cardsAHtml(sneakers)
 
 // Aplicar descuento a productos
@@ -270,5 +272,7 @@ window.onload = function () {
     subirAlCarrito()
     actualizarNro()
 };
+
+
 
 
