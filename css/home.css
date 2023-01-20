@@ -23,7 +23,6 @@
 body {
   margin: 0;
   background-color: var(--background);
-
 }
 
 .ofert{
@@ -36,9 +35,13 @@ body {
   color: rgb(224, 93, 93);
 }
 
+
+
+
+
 .contenedorHome {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-left: 200px;
     margin-right: 200px;
 }
@@ -47,7 +50,8 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: auto;
+  width: 320px;
+  padding: 30px;
   background-color: transparent;
   color: var(--color);
   text-align: left;
@@ -55,12 +59,18 @@ body {
   padding: 2%;
 }
 
+
+.card img{
+  width: 300px;
+  height: 300px;
+}
+
 #cardPrecio{
-  background-color: red;
+  background-color: rgb(225, 106, 8);
   border-radius: 20px;
   text-align: center;
   margin: 10px;
-  color: rgb(237, 237, 60);
+  color: rgb(237, 237, 14);
   width: 120px;
 }
 
@@ -156,7 +166,7 @@ img {
 
 /* SECTION ARGENTINA */
 img {
-  height: 355px;
+  height: 555px;
   width: 100%;
   object-fit: fill;
   border-radius: 20px;

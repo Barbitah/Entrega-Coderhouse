@@ -136,7 +136,6 @@ function validarOfertas(array) {
             pushearArray(newArray, element)
         }
     })
-    console.log(newArray);
     contenedor.innerHTML = cardsAHtml(newArray)
     subirAlCarrito()
 
@@ -233,7 +232,6 @@ function categoriaSandalia(array) {
                 pushearArray(newArray, element)
             }
         })
-        console.log(newArray);
         contenedor.innerHTML = cardsAHtml(newArray)
         subirAlCarrito()
     })
@@ -251,7 +249,6 @@ function categoriaZapatillas(array) {
                 pushearArray(newArray, element)
             }
         })
-        console.log(newArray);
         contenedor.innerHTML = cardsAHtml(newArray)
         subirAlCarrito()
     })
