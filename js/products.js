@@ -87,7 +87,7 @@ function actualizarNro() {
 
     if (nro === null) {
         carroNro.innerHTML = "0"
-    }else{
+    } else {
         carroNro.innerHTML = nro.length
     }
 }
@@ -106,6 +106,20 @@ const subirAlCarrito = () => {
             pushearArray(carro, producto)
             enviarLs("carrito", carro)
             actualizarNro()
+            Toastify({
+
+                text: "Producto agregado al carrito",
+                style: {
+                    background: "#F51D45",
+                },
+                offset: {
+                    x: 40,
+                    y: 140,
+                },
+                duration: 3000,
+                className: 'toasty'
+
+            }).showToast();
         }
     })
 }
@@ -162,6 +176,41 @@ document.querySelector(".btn_ofertas").addEventListener('click', function (e) {
 
 
 
+
+
+
+
+function imprimirHtml(array) {
+
+    const contenedor = document.querySelector(".contenedor")
+
+    const card = document.createElement("div")
+    card.className = "card"
+    card.innerHTML = `
+            <div class="card" id="card-${array.id}">
+                <div class="card-img">
+                    <img src=${array.img} alt=${array.producto}>
+                </div>   
+                <h5>
+                    ${array.producto}
+                </h5>    
+                <h5>
+                    $${array.precio}
+                </h5>
+                <h6>${array.descripción}</h6>
+                <button class="boton-carrito" id="button-${array.id}">Añadir al carrito</button>     
+            </div>
+
+    `
+    contenedor.appendChild(card)
+}
+
+
+
+
+
+
+
 // FUNCIONALIDADES FILTROS
 
 const searchForm = document.querySelector(".d-flex")
@@ -169,14 +218,58 @@ const searchForm = document.querySelector(".d-flex")
 searchForm.onsubmit = (e) => {
     e.preventDefault()
     document.querySelector(".contenedor").innerHTML = "";
-    if (document.querySelector("#searchText").value === "") {
-        cardsAHtml(sneakers)
+    const inputSearch = document.querySelector("#searchText").value
+    if (inputSearch.length === 0) {
+        contenedor.innerHTML = cardsAHtml(sneakers)
+        Toastify({
+
+            text: "No se encuentra el producto",
+            style: {
+                background: "#F51D45",
+            },
+            offset: {
+                x: 40,
+                y: 140,
+            },
+            duration: 3000,
+            className: 'toasty'
+
+        }).showToast();
     } else {
         searchProduct(sneakers)
     }
 }
 
 
+function searchProduct(array) {
+    let arr = [...array]
+    const searchBar = document.querySelector("#searchText").value
+    let busqueda = arr.find(elemento => elemento.producto == searchBar.toUpperCase());
+
+    if (busqueda === undefined) {
+        Toastify({
+
+            text: "No se encuentra el producto",
+            style: {
+                background: "#F51D45",
+            },
+            offset: {
+                x: 40,
+                y: 140,
+            },
+            duration: 3000,
+            className: 'toasty'
+
+        }).showToast();
+        contenedor.innerHTML = cardsAHtml(sneakers)
+    } else {
+        imprimirHtml(busqueda);
+        subirAlCarrito()
+        actualizarNro()
+        console.log(busqueda);
+    }
+
+}
 
 
 // btn todos
@@ -269,7 +362,3 @@ window.onload = function () {
     subirAlCarrito()
     actualizarNro()
 };
-
-
-
-

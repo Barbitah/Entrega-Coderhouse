@@ -147,18 +147,6 @@ function validarOfertas(array) {
 
 // FUNCIONALIDADES FILTROS
 
-const searchForm = document.querySelector(".d-flex")
-
-searchForm.onsubmit = (e) => {
-    e.preventDefault()
-    document.querySelector(".contenedor").innerHTML = "";
-    if (document.querySelector("#searchText").value === "") {
-        cardsAHtml(sneakers)
-    } else {
-        searchProduct(sneakers)
-    }
-}
-
 
 
 

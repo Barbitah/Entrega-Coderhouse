@@ -105,7 +105,8 @@ validar que los datos que se ingresar son correctos. Ej: el campo que reciba un 
 debe cotejar que el dato ingresado contenga una @, distintiva de este tipo de recurso,
 que un campo nombre debe tener más de 2 caracteres, etc.
 &nbsp;
-  
+
+
   
 <p align="">💯 Link al proyecto: <a href="https://barbitah.github.io/Preentrega2-Barba/" target="_blank">SneakerShop</a></p>
   

@@ -32,6 +32,7 @@ body {
   0% {
     box-shadow: inset 0px 0px 5px 2px var(--feedback__color);
   }
+
   100% {
     box-shadow: none;
   }
@@ -123,10 +124,10 @@ input:focus {
   flex-direction: row;
   margin-left: 32px;
   margin-top: 20px;
-  
+
 }
 
-.filter input{
+.filter input {
   color: var(--color);
   background-color: transparent;
 }
@@ -148,10 +149,12 @@ input:focus {
 }
 
 .card {
- /* card responsive GRID */
+  /* card responsive GRID */
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  justify-content: center;
+  margin: 20px;
   width: 250px;
   background-color: transparent;
   color: var(--color);
@@ -159,6 +162,7 @@ input:focus {
   text-align: left;
   border-style: none;
   padding: 2%;
+
 }
 
 .card img {
@@ -450,12 +454,13 @@ footer .by p {
 
 @media (max-width: 3000px) {
 
-  .toggle-container{
+  .toggle-container {
     position: absolute;
     top: 20%;
     right: 3%;
   }
-  .contenedor{
+
+  .contenedor {
     margin-left: 9rem;
     display: flex;
     align-items: center;
@@ -466,15 +471,17 @@ footer .by p {
 
 @media screen and (min-width: 1436px) and (max-width:1500px) {
 
-  .toggle-container{
+  .toggle-container {
     position: absolute;
     top: 22%;
     right: 3%;
   }
-  .contenedor{
+
+  .contenedor {
     margin-left: 12rem;
   }
-  .contenedor{
+
+  .contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -483,15 +490,17 @@ footer .by p {
 
 @media screen and (min-width: 1000px) and (max-width:1430px) {
 
-  .toggle-container{
+  .toggle-container {
     position: absolute;
     top: 22%;
     right: 3%;
   }
-  .contenedor{
+
+  .contenedor {
     margin-left: 12rem;
   }
-  .contenedor{
+
+  .contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -500,15 +509,17 @@ footer .by p {
 
 @media screen and (min-width: 768px) and (max-width:1000px) {
 
-  .toggle-container{
+  .toggle-container {
     position: absolute;
     top: 22%;
     right: 3%;
   }
-  .filter{
+
+  .filter {
     display: none;
   }
-  .contenedor{
+
+  .contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -517,13 +528,15 @@ footer .by p {
 
 @media screen and (min-width: 480px) and (max-width:768px) {
 
-  .toggle-container{
+  .toggle-container {
     display: none;
   }
-  .filter{
+
+  .filter {
     display: none;
   }
-  .contenedor{
+
+  .contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -531,10 +544,11 @@ footer .by p {
 }
 
 @media screen and (min-width: 320px) and (max-width:480px) {
-  .toggle-container{
+  .toggle-container {
     display: none;
   }
-  .filter{
+
+  .filter {
     display: none;
   }
 
