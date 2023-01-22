@@ -25,9 +25,10 @@ body {
   margin: 0;
   background-color: var(--background);
   font-family: 'Lato', sans-serif;
+
 }
 
-.ofert{
+.ofert {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,10 +43,9 @@ body {
 
 
 .contenedorHome {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    margin-left: 200px;
-    margin-right: 200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 100px;
 }
 
 .card {
@@ -53,7 +53,6 @@ body {
   align-items: center;
   gap: 10px;
   width: 320px;
-  padding: 30px;
   background-color: transparent;
   color: var(--color);
   text-align: left;
@@ -62,12 +61,12 @@ body {
 }
 
 
-.card img{
+.card img {
   width: 300px;
   height: 300px;
 }
 
-#cardPrecio{
+#cardPrecio {
   background-color: rgb(235, 0, 0);
   border-radius: 20px;
   text-align: center;
@@ -76,13 +75,6 @@ body {
   width: 120px;
 }
 
-img {
-  display: flex;
-  align-items: center;
-  justify-items: center;
-  width: 180px;
-  border-radius: 40px;
-}
 
 .card:hover {
   scale: 1.04;
@@ -159,20 +151,22 @@ img {
 .swiper {
   margin-top: 60px;
   width: 100%;
-  height: 800px;
+  height: 600px;
   border-radius: 20px;
 }
+
+.swiper-img {
+  height: 100%;
+  width: 100%;
+}
+
+
+
 
 /* DARK MODE */
 
 
 /* SECTION ARGENTINA */
-img {
-  height: 755px;
-  width: 100%;
-  object-fit: fill;
-  border-radius: 20px;
-}
 
 
 .container-section {
@@ -216,11 +210,14 @@ img {
 }
 
 
-.container-img{
+.jordan {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  margin: 100px;
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  margin: 70px;
+}
+
+.jordan img {
+  border-radius: 40px;
 }
 
 .section-argentina {
@@ -329,60 +326,7 @@ footer .by p {
   z-index: 999;
 }
 
-.icons {
-  margin-top: 20px;
-  display: flex;
-  column-gap: 25px;
 
-}
-
-.icon1 {
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 20px;
-  color: #fff;
-  border-radius: 50%;
-  outline: 2px solid #fff;
-  transition-property:
-    outline-offset, outline-color,
-    background-color;
-  transition-duration: .25s;
-}
-
-.icon1:hover {
-  outline-offset: 4px;
-}
-
-.icon1:hover i {
-  animation: shake .25s;
-}
-
-.icon--instagram:hover {
-  background-image: radial-gradient(circle at 30% 107%,
-      #fdf497 0%, #fdf497 5%,
-      #fd5949 45%, #d6249f 60%,
-      #285AEB 90%);
-  outline-color: #a02d76;
-}
-
-.icon--twitter:hover {
-  background-color: #1da1f2;
-  outline-color: #1da1f2;
-}
-
-.icon--linkedin:hover {
-  background-color: #0077b5;
-  outline-color: #0077b5;
-}
-
-.icon--github:hover {
-  background-color: #000000;
-  outline-color: #000000;
-}
 
 @keyframes shake {
   10% {
@@ -463,6 +407,14 @@ b {
     top: 3%;
     right: 3%;
   }
+  .jordan{
+    gap: 60px;
+  }
+  .jordan img{
+    width: 94%;
+    height: 100%;
+  }
+
 }
 
 @media screen and (min-width: 768px) and (max-width:1000px) {
@@ -477,6 +429,29 @@ b {
     top: 22%;
     right: 3%;
   }
+  .jordan{
+    margin: 1%;
+    gap: 50px;
+  }
+
+  .jordan img{
+    width: 94%;
+    height: 100%;
+  }
+
+  .card {
+    margin-left: 70px;
+    display: flex;
+    gap: 10px;
+    width: 220px;
+    padding: 2%;
+  }
+
+
+  .card img {
+    width: 220px;
+    height: 220px;
+  }
 }
 
 @media screen and (min-width: 480px) and (max-width:768px) {
@@ -488,6 +463,29 @@ b {
 
   .toggle-container {
     display: none;
+  }
+
+  .jordan{
+    margin: 24%;
+    gap: 50px;
+  }
+  .jordan img{
+    width: 94%;
+    height: 100%;
+  }
+
+  .card {
+    margin-left: 70px;
+    display: flex;
+    gap: 10px;
+    width: 220px;
+    padding: 2%;
+  }
+
+
+  .card img {
+    width: 220px;
+    height: 220px;
   }
 }
 
@@ -519,6 +517,33 @@ b {
   .section-argentina {
     display: none;
   }
+
+  .swiper {
+    height: 200px;
+  }
+
+  .card {
+    display: flex;
+    gap: 10px;
+    width: 220px;
+    padding: 2%;
+  }
+
+  .jordan{
+    margin: 10%;
+  }
+
+  .card img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .jordan img{
+    width: 90%;
+    height: 90%;
+  }
 }
+
+
 
 /* RESPONSIVE*/
