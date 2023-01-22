@@ -36,6 +36,11 @@ const cardsAHtml = (array) => {
                     ${element.producto}
                 </h5>    
                 <h5 id="cardPrecio">
+                <svg width="19" height="19" fill="none" stroke="#d4d4d4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.904 1.5h-5.762c-.18 0-.351.07-.478.197L1.144 13.214a1.352 1.352 0 0 0 0 1.908l5.484 5.484a1.353 1.353 0 0 0 1.908 0L20.053 9.094a.678.678 0 0 0 .197-.478V2.85a1.342 1.342 0 0 0-1.346-1.35Z"></path>
+                <path fill="#d4d4d4" stroke="none" d="M16.5 6.75a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"></path>
+                <path d="m10.781 22.5 12.281-12.281a.647.647 0 0 0 .188-.469v-6"></path>
+                </svg>
                     $${element.precio}
                 </h5>
                 <button class="boton-carrito" id="button-${element.id}"><svg width="19" height="19" fill="none" stroke="#d4d4d4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

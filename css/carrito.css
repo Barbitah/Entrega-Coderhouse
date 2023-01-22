@@ -2,18 +2,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 :root {
   /* Dark Mode Colours */
+
   --background: #0f0f0f;
   --color: #5f5f5f;
   --button: #272727;
   --buttonhover: #3f3f3f;
   --feedback__color: rgba(255, 255, 255, 0.7);
-  /* Light Mode Colours
 
+  /* Light Mode Colours
+  
   background: #FFFFFF;
   color: #000000;
   button: #F2F2F2;
   buttonhover: #E5E5E5;
-
+  
   */
 }
 
@@ -519,7 +521,7 @@ label {
 @media (max-width: 3000px) {
   .toggle-container {
     position: absolute;
-    top: 20%;
+    top: 3%;
     right: 3%;
   }
   .contenedor {
@@ -529,7 +531,7 @@ label {
 @media screen and (min-width: 768px) and (max-width: 1000px) {
   .toggle-container {
     position: absolute;
-    top: 22%;
+    top: 3%;
     right: 3%;
   }
   .filter {
