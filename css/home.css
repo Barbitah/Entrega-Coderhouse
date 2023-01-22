@@ -397,8 +397,7 @@ b {
 @media (min-width: 1000px) and (max-width: 3000px) {
   .texto {
     position: absolute;
-    top: 22vh;
-
+    top: 20%;
     font-size: 15px;
   }
 
@@ -482,6 +481,9 @@ b {
     padding: 2%;
   }
 
+  .texto{
+    display: none;
+  }
 
   .card img {
     width: 220px;
@@ -530,7 +532,7 @@ b {
   }
 
   .jordan{
-    margin: 10%;
+    margin: 2%;
   }
 
   .card img {
